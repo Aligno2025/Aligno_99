@@ -46,7 +46,7 @@ const router = createBrowserRouter([
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode >
-    <RouterProvider router={router} basename={import.meta.env.BASE_URL} />
+  <StrictMode basename={import.meta.env.BASE_URL} >
+    <RouterProvider router={router}  />
   </StrictMode>,
 )
