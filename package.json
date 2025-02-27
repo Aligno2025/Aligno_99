@@ -3,8 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://aligno2025.github.io/Aligno2025",
-
+   "homepage": ".",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
