@@ -6,7 +6,6 @@ import App from './App.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
 } from 'react-router-dom';
 
 import Main_task from './components/Task_management/Main_task.jsx'
@@ -38,7 +37,7 @@ const router = createBrowserRouter([
     element: <Sign_up />,
   },
   {
-    path: "Error",
+    path: "*",
     element: <Error />,
   },
 ])

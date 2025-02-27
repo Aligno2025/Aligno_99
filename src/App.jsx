@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Sectors from './components/Sectors'
