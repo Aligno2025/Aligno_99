@@ -10,7 +10,7 @@ const Get = () => {
                 <p class='pb-16 pt-10 pl-0 pr-0 font-Roboto text-md'>Aligno helps you organise tasks in a smarter, more efficient way. Whether you’re managing [specific tasks], collaborating with teammates, or organizing your day,</p>
 
                 <button >
-                    <Link to="/Sign_up" class="px-8  py-4 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
+                    <Link to="/Sign_up" class="px-8  py-4 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" >
                         Get Started
                     </Link>
                 </button>

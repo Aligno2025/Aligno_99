@@ -42,7 +42,7 @@ const Hero = () => {
                     </div>
 
                     <button className='md:mr-20 mr-6 md:pt-16 pt-8'>
-                        <Link to="/Sign_up" className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
+                        <Link to="/Sign_up" className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" >
                             Get Started
                         </Link>
                     </button>

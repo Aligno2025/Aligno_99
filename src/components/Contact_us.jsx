@@ -138,7 +138,7 @@ const Contact_us = () => {
               </div>
               <div className='flex justify-end'>
                 <button type="submit">
-                  <Link to="/" className="px-8 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-amber-48 border-2 hover:text-amber-48">
+                  <Link to="/" className="px-8 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-amber-48 border-2 hover:text-amber-48" >
                     Send
                   </Link>
                 </button>

@@ -61,7 +61,7 @@ const Resources = () => {
                                 <p class='order-first md:order-none text-sm md:text-md md:text-lg font-Roboto md:mb-10'> From detailed guides and tutorials to customer support and best practices, our resources ensure you have the knowledge and tools needed to streamline task management and enhance team collaboration.</p>
                             </div>
                             <button >
-                                <Link to="/Sign_up" class="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
+                                <Link to="/Sign_up" class="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48"  >
                                     Explore all features
                                 </Link>
                             </button>

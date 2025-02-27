@@ -105,7 +105,7 @@ const Footer = () => {
                             class='px-10  w-[60%] mt-1  font-Roboto text-sm md:text-base font-medium md:py-1 py-1.5 border-none ring-2 pl-10 ring-gray-300 focus:ring-grey-500 focus:ring-2'
                         />
                         <button >
-                            <Link to="/Sign_up" class="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
+                            <Link to="/Sign_up" class="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"  smooth="true">
                                 Sign In
                             </Link>
                         </button>
@@ -128,7 +128,7 @@ const Footer = () => {
                         <Link to="/Sign_up" class='md:h-14 h-10 md:w-20 w-[80%] object-fill'>
                             <img src={img1} alt="" />
                         </Link>
-                        <Link to="/Sign_up" class='md:h-14 h-10 md:w-20 w-[80%] object-fill'>
+                        <Link to="/Sign_up" class='md:h-14 h-10 md:w-20 w-[80%] object-fill' >
                             <img src={img2} alt="" />
                         </Link>
                     </div>

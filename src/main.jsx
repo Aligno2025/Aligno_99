@@ -13,7 +13,6 @@ import Main_task from './components/Task_management/Main_task.jsx'
 import Main_team from './components/Team_collaboration/Main_team.jsx'
 import Main_support from './components/Support/Main_support.jsx'
 import Sign_up from './components/Sign_up/Sign_up.jsx'
-// import Hero from './components/Hero.jsx';
 import Error from './components/Error.jsx';
 
 
@@ -46,7 +45,7 @@ const router = createBrowserRouter([
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode basename={import.meta.env.BASE_URL} >
+  <StrictMode >
     <RouterProvider router={router}  />
   </StrictMode>,
 )

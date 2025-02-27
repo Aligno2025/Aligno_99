@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 function Boards(props) {
 
     return (
-        <Link to="/Sign_up">
+     
             <div class='pt-4 pl-4 pr-4 md:pb-30 pb-[40%] rounded-2xl hover:bg-orange-225 mt-6 bg-purple-185 text-white '>
                 <div class='pl-2'>
                     <h1 class='text-2xl font-bold font-poppins'>{props.bigtext}</h1>
@@ -19,14 +19,13 @@ function Boards(props) {
                 <div class='grid grid-cols-2 gap-1 md:gap-4 mt-2 md:mt-6'>
 
                     <button >
-                        <Link to="/Sign_up" class="md:px-6 px-2 py-3 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-gray-50/5 border-2 border-amber-48 hover:text-white" smooth>
+                        <Link to="/Sign_up" class="md:px-6 px-2 py-3 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-gray-50/5 border-2 border-amber-48 hover:text-white">
                             {props.btn}
                         </Link>
                     </button>
                     <div class='relative'><img class='absolute' src={props.img} alt="" /></div>
                 </div>
             </div>
-        </Link>
     )
 
 }

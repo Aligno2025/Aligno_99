@@ -15,9 +15,6 @@ import Footer from './components/Footer'
 import BackToTopButton from './components/BackToTopButton';
 
 
-
-
-
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -61,13 +58,12 @@ function App() {
       </div>
 
       {/* Wrap other components in a lower z-index container */}
-      <div class='relative z-1 min-h-screen'>
+      <div>
         {components.map(({ component, id }) => (
           <div
             key={id}
             id={id}
-            className="animated-section"
-            style={{ opacity: 0, transform: 'translateY(50px)' }}
+            class='animated-section opacity-0 translate-y-52'
           >
             {component}
           </div>

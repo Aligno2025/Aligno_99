@@ -94,10 +94,10 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <dev class='order-last md:order-none'>
+          <div class='order-last md:order-none'>
             <h1 class=' font-bold'> <span class='text-orange-225 md:mr-30 mr-10'> Analytics</span> Progress</h1>
             <Graph />
-          </dev>
+          </div>
 
           <div class='md:pr-20' >
             <div className='border-b-1 border-t-1 md:border-r-1 border-l-1 md:border-l-0 border-gray-300 p-2 rounded-2xl md:rotate-0  -rotate-2'>
@@ -108,8 +108,8 @@ const Dashboard = () => {
               </div>
               <div class="relative size-30 mt-5 ml-10 ">
                 <svg class="rotate-[135deg] size-full" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-gray-300 dark:text-gray-300" stroke-width="3.5" stroke-dasharray="75 100" stroke-linecap="round"></circle>
-                  <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-orange-225 dark:text-orange-225" stroke-width="3.5" stroke-dasharray="50 100" stroke-linecap="round"></circle>
+                  <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-gray-300 dark:text-gray-300" strokeWidth="3.5" strokeDasharray="75 100" strokeLinecap="round"></circle>
+                  <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-orange-225 dark:text-orange-225" strokeWidth="3.5" strokeDasharray="50 100" strokeLinecap="round"></circle>
                 </svg>
                 <div class="absolute top-1/2 start-1/2 transform -translate-x-1/2 text-center">
                   <span class="text-xl font-bold text-orange-225 dark:text-orange-225">67%</span>

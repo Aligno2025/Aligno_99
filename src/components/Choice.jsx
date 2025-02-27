@@ -101,7 +101,7 @@ const Choice = () => {
                 <p class='col-span-2 text-sm font-normal font-Roboto mb-8 md:mt-0'>All features have been built for ease and ultimate productivity to streamline task management,set deadlines and collaborate effectively</p>
 
                 <button >
-                    <Link to="/Sign_up" class="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
+                    <Link to="/Sign_up" class="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48">
                         Explore all features
                     </Link>
                 </button>
