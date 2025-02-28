@@ -11,7 +11,7 @@ import team from '../assets/img/team.png'
 
 const Sectors = () => {
   return (
-    <div class='pt-10 pb-10'>
+    <div class='pt-10 pb-10 '>
     
 
       <div class=' grid md:grid-cols-5 gap-4 justify-center items-center text-center pr-20 pl-20'>
@@ -40,7 +40,7 @@ const Sectors = () => {
       </span>
       </div>
 
-      <div class='text-center w-full mt-10'>
+      <div class='text-center w-full mt-10 pl-8 pr-8'>
         <h1 class='font-poppins font-bold text-3xl'>For Teams and Individuals in all sectors</h1>
         <p class='font-Roboto text-base md:pr-70 md:pl-70'>Empowering teams and individuals across all sectors to stay organized, collaborate efficiently, and achieve their goals.</p>
       </div>
