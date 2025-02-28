@@ -21,12 +21,12 @@ const Hero = () => {
     }, { scope: container });
 
     return (
-        <div ref={container} className='headerbackground md:h-screen h-[110%] md:grid md:grid-cols-5 gap-2 justify-center items-center text-center'>
+        <div ref={container} className='bg-gradient-to-r from-[rgba(179,237,249,0.36)] via-[rgba(255,255,255,1)] via-13% via-[rgba(255,255,255,0.284)] via-84% to-[rgba(193,239,249,0.36)] md:h-dvh pb-5 md:grid md:grid-cols-5 gap-2 justify-center items-center text-center'>
             <div className='invisible md:visible hero-element'>
                 <img className='w-50 md:pt-60 pl-5' src={img1} alt="Illustration 1" />
             </div>
 
-            <div className='md:col-span-3 hero-element mb-5 md:mb-0'>
+            <div className='md:col-span-3 hero-element'>
                 <div>
                     <h1 className='md:text-5xl/15 text-3xl/10 font-extrabold font-poppins md:mt-20'>
                         All-In-One <span className='text-amber-48'>Task Management</span> and <span className='text-orange-225'>Collaboration</span> Platform
