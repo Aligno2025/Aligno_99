@@ -21,7 +21,7 @@ const Hero = () => {
     }, { scope: container });
 
     return (
-        <div ref={container} className='headerbackground md:h-screen h-120 md:grid md:grid-cols-5 gap-2 justify-center items-center text-center'>
+        <div ref={container} className='headerbackground md:h-screen h-100 md:grid md:grid-cols-5 gap-2 justify-center items-center text-center'>
             <div className='invisible md:visible hero-element'>
                 <img className='w-50 md:pt-60 pl-5' src={img1} alt="Illustration 1" />
             </div>
@@ -55,7 +55,7 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className='hero-element'>
+            <div className='hero-element md:relative absolute'>
                 <img className='w-50 md:pb-40 pl-10 pr-5 md:visible invisible' src={img2} alt="Illustration 2" />
             </div>
         </div>

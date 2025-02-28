@@ -33,7 +33,7 @@ const Choice = () => {
                 <p class='font-Roboto' >Designed for teams that want to do more. Here’s Aligno in action</p>
             </div>
 
-            <div class=' grid md:grid-cols-6 md:gap-20 md:pb-15 pb-4 gap-6 font-Roboto text-base'>
+            <div class=' grid md:grid-cols-6 md:gap-20 md:pb-15 pb-8 gap-6 font-Roboto text-base'>
 
                 <span class=' col-span-2'>
                     <div class=' text-purple-185 bg-ash-242  absolute -z-1 p-10 pr-20'>
