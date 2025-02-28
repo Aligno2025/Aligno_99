@@ -21,17 +21,17 @@ const Hero = () => {
     }, { scope: container });
 
     return (
-        <div ref={container} className='headerbackground md:h-screen h-100 md:grid md:grid-cols-5 gap-2 justify-center items-center text-center'>
+        <div ref={container} className='headerbackground md:h-screen h-[110%] md:grid md:grid-cols-5 gap-2 justify-center items-center text-center'>
             <div className='invisible md:visible hero-element'>
                 <img className='w-50 md:pt-60 pl-5' src={img1} alt="Illustration 1" />
             </div>
 
-            <div className='md:col-span-3 hero-element'>
+            <div className='md:col-span-3 hero-element mb-5 md:mb-0'>
                 <div>
                     <h1 className='md:text-5xl/15 text-3xl/10 font-extrabold font-poppins md:mt-20'>
                         All-In-One <span className='text-amber-48'>Task Management</span> and <span className='text-orange-225'>Collaboration</span> Platform
                     </h1>
-                    <p className='mt-5 pl-10 pr-10 font-Roboto md:text-lg/8 text-xs/5 font-normal'>
+                    <p className='mt-5 pl-10 pr-10 font-Roboto md:text-lg/8 text-xs/5 font-normal '>
                         The ultimate productivity tool to streamline task management, set deadlines and collaborate effectively, all in one place.
                     </p>
 
