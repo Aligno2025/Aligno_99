@@ -26,7 +26,7 @@ const Chart = () => {
             <div class='md:col-span-3'>
                 <Dashboard />
             </div>
-            <div class='grid grid-cols-2 md:grid-cols-1 md:gap-6 md:p-4 mt-5 md-mt-0'>
+            <div class='grid grid-cols-2 md:grid-cols-1 w-[100%] md:w-70 md:gap-6 md:p-4 mt-5 md-mt-0'>
                 <div>
                     <span class='md:pr-60 pr-[95%] pt-8 rounded inline-block bg-red-250'></span>
                     <Bar
