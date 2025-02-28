@@ -14,7 +14,7 @@ function Footext({ h1, links }) {
 
     return (
         <div>
-            <h1 className="font-Roboto font-medium text-lg pb-4">{h1}</h1>
+            <h1 className="font-Roboto font-bold text-lg pb-4">{h1}</h1>
             <div className="grid grid-rows-4 gap-2">
                 {links.map((link, index) => (
                     <Link
@@ -114,7 +114,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div class='grid md:grid-cols-4 grid-cols-2 md:gap-30 gap-2'>
+            <div class='grid md:grid-cols-4 grid-cols-2 md:gap-30 gap-4'>
 
 
                 <Footext h1="Features" links={linksSetOne} />
@@ -123,7 +123,7 @@ const Footer = () => {
 
 
                 <div>
-                    <h1 class='font-Roboto font-medium text-lg pb-4'>Socials</h1>
+                    <h1 class='font-Roboto font-bold text-lg pb-4'>Socials</h1>
                     <div class='grid grid-cols-2 md:gap-2 pb-3'>
                         <Link to="/Sign_up" class='md:h-14 h-10 md:w-20 w-[80%] object-fill'>
                             <img src={img1} alt="" />
