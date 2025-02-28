@@ -73,7 +73,7 @@ const Dashboard = () => {
           </ul>
         </div>
 
-        <div class='grid md:grid-cols-2 md:grid-rows-2 md:gap-4 gap-14 mt-4 text-xl '>
+        <div class='grid md:grid-cols-2 md:grid-rows-2  gap-4 md:mt-4 mt-2 text-xl '>
           <div>
             <h1 class='text-amber-48 font-bold'>All Tasks</h1>
             <div class='md:pr-20 -rotate-2 text-gray-500 text-sm'>

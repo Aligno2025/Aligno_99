@@ -56,7 +56,7 @@ const Resources = () => {
                 <div>
                     <div class='md:ml-10'>
                         <span class='pr-60 pt-8 rounded w-[100%] md:w-md inline-block bg-red-250'></span>
-                        <div class='pt-6 pl-10 pr-10 pb-14 w-[100%] md:w-md rounded-2xl mt-3 bg-white font-Roboto text-center'>
+                        <div class='pt-6 pl-10 pr-10 md:pb-14 pb-8 w-[100%] md:w-md rounded-2xl mt-3 bg-white font-Roboto text-center'>
                             <div class='grid md:block grid-rows gap-4'>
                                 <h1 class='order-last md:order-none text-3xl font-bold font-Poppins md:mb-0 mb-5'>Resources</h1>
                                 <p class='order-first md:order-none text-sm md:text-md md:text-lg font-Roboto md:mb-10'> From detailed guides and tutorials to customer support and best practices, our resources ensure you have the knowledge and tools needed to streamline task management and enhance team collaboration.</p>

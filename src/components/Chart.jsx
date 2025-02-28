@@ -22,7 +22,7 @@ function Bar(props) {
 
 const Chart = () => {
     return (
-        <div class='p-8 md:p-10 grid md:grid-cols-4 md:gap-10 md:bg-linear-to-t  from-arrow-purple-104 to-light-red-181 md:min-h-dvh'>
+        <div class='p-8 pt-2 md:p-10 grid md:grid-cols-4 md:gap-10 md:bg-linear-to-t  from-arrow-purple-104 to-light-red-181 md:min-h-dvh'>
             <div class='md:col-span-3'>
                 <Dashboard />
             </div>

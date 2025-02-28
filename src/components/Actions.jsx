@@ -27,7 +27,7 @@ function Numeron(props) {
 const Actions = () => {
     return (
         <div>
-            <div class='pr-5 pl-5 md:pr-50 md:pl-50 md:pt-20 pt-10 pb-10 md:pb-5 text-center'>
+            <div class='pr-5 pl-5 md:pr-50 md:pl-50 md:pt-10 pt-5 pb-5 md:pb-5 text-center'>
                 <div>
                     <p class='text-lg font-medium font-poppins'><span class='p-1.5 bg-orange-225 rounded-2xl inline-block mx-4 '></span>Aligno In Action</p>
                 </div>
@@ -54,7 +54,7 @@ const Actions = () => {
                     </div>
                 </div>
             </div>
-            <div class='grid md:grid-cols-5 grid-cols-2 md:gap-6 gap-10 pr-10 pl-10 md:pr-20 md:pl-20 justify-center items-center p-10 md:p-20'>
+            <div class='grid md:grid-cols-5 grid-cols-2 md:gap-6 gap-10 pr-10 pl-10 md:pr-20 md:pl-20 justify-center items-center p-5 md:p-15'>
                 <img src={img1} alt="" />
                 <img src={img2} alt="" />
                 <img src={img3} alt="" />

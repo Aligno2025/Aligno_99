@@ -87,7 +87,7 @@ const linksSocial = [
 
 const Footer = () => {
     return (
-        <div class='md:pr-20 md:pl-20 pr-10 pl-10 pb-8 pt-10'>
+        <div class='md:pr-20 md:pl-20 pr-10 pl-10 pb-4 pt-4'>
             <div class='grid md:grid-cols-2 gap-10'>
                 <div class='order-2 md:order-1'>
                     <h1 class="font-poppins text-2xl text-amber-48 font-extrabold">Aligno</h1>

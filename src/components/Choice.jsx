@@ -27,13 +27,13 @@ function BarText(props) {
 
 const Choice = () => {
     return (
-        <div class='md:pr-20 md:pl-20 pr-10 pl-10 pb-20  '>
+        <div class='md:pr-20 md:pl-20 pr-10 pl-10 md:pb-6 pb-4  '>
             <div class='text-center md:p-12 pb-15'>
                 <h1 class="font-poppins md:text-2xl text-3xl font-bold">Why Teams Choose <span class="text-amber-48">Aligno</span></h1>
                 <p class='font-Roboto' >Designed for teams that want to do more. Here’s Aligno in action</p>
             </div>
 
-            <div class=' grid md:grid-cols-6 gap-20 pb-24 font-Roboto text-base'>
+            <div class=' grid md:grid-cols-6 md:gap-20 md:pb-15 pb-4 gap-6 font-Roboto text-base'>
 
                 <span class=' col-span-2'>
                     <div class=' text-purple-185 bg-ash-242  absolute -z-1 p-10 pr-20'>

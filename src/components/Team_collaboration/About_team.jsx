@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 
 const About_team = () => {
   return (
-    <div class='mb-20'>
-      <div class='bg-linear-to-t  from-arrow-purple-104 to-light-red-181 h-100'>
+    <div class='md:mb-10 mb-8'>
+      <div class='bg-linear-to-t  from-arrow-purple-104 to-light-red-181 md:h-80 h-90'>
         <div>
-          <div class='pl-20 md:pt-30 pt-10 md:pr-150'>
+          <div class='md:pl-20 pl-5 pt-10 md:pr-150 pr-5'>
             <div >
-              <h1 class="font-poppins text-2xl font-extrabold pr-50">About Team Management Feature</h1>
+              <h1 class="font-poppins text-2xl font-extrabold md:pr-50">About Team Management Feature</h1>
               <p class='font-Roboto text-base font-normal p-10 md:pr-40 pl-0'>Keep everyone on the same page with built in communication tools , file sharing and real time updates </p>
             </div>
 

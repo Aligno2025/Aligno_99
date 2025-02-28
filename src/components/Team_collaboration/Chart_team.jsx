@@ -22,11 +22,11 @@ function Bar (props) {
 
 const Chart = () => {
     return (
-        <div class='p-5 md:p-10 grid md:grid-cols-4 gap-10 md:bg-linear-to-t  from-arrow-purple-104 to-light-red-181 md:min-h-dvh'>
+        <div class='p-5 md:p-10 grid md:grid-cols-4 md:gap-10 gap-4 md:bg-linear-to-t  from-arrow-purple-104 to-light-red-181 md:min-h-dvh'>
             <div class='md:col-span-3 order-2'>
                <Dashboard />
             </div>
-            <div class='grid grid-cols-2 md:grid-cols-1 md:gap-6 md:p-4 '>
+            <div class='grid grid-cols-2 md:grid-cols-1 md:gap-6 md:p-4 p-2 '>
                 <div>
                     <span class='md:pr-60 pr-[95%] pt-8 rounded inline-block bg-red-250'></span>
                     <Bar

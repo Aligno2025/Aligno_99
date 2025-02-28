@@ -63,7 +63,7 @@ const Calendar = () => {
   };
 
   return (
-    <div className="md:max-w-lg max-w-70 mx-auto mt-30 p-5 bg-white shadow-lg rounded-lg md:mr-2">
+    <div className="md:max-w-lg max-w-70 mx-auto mt-25 p-5 bg-white shadow-lg rounded-lg md:mr-2">
       <div>
         <select value={months[selectedDate.month()]} onChange={handleMonthChange} className="px-4 py-1 rounded font-bold hover:border-black hover:border-2 mb-2 mt-10">
           {months.map((month) => (
@@ -86,11 +86,11 @@ const Calendar = () => {
         </div>
 
         {/* Display the calendar popup */}
-        {isCalendarVisible && (
+        {/* {isCalendarVisible && ( )} */}
           <div className="mt-4">
             <div className="flex justify-between">
               <button className="text-gray-500" onClick={() => setIsCalendarVisible(false)}>Cancel</button>
-              <button className="bg-orange-500 text-white px-4 py-2 rounded-md" onClick={() => setIsCalendarVisible(false)}>Done</button>
+              <button className="bg-orange-500 border-2 border-orange-500 hover:bg-white hover:text-black text-white px-4 py-2 rounded-md" onClick={() => setIsCalendarVisible(false)}>Done</button>
             </div>
 
             {/* Calendar Navigation */}
@@ -135,7 +135,7 @@ const Calendar = () => {
               </div>
             </div>
           </div>
-        )}
+       
       </div>
     </div>
   );

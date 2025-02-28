@@ -11,7 +11,7 @@ import team from '../assets/img/team.png'
 
 const Sectors = () => {
   return (
-    <div class='pt-10 pb-10 '>
+    <div class='md:pt-10 pt-2 md:pb-10 pb-4 '>
     
 
       <div class=' grid md:grid-cols-5 gap-4 justify-center items-center text-center pr-20 pl-20'>

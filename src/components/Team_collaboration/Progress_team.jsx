@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Progress_team = () => {
   return (
     <div>
-      <div class='grid md:grid-cols-2 justify-center items-center h-150 md:h-100 relative md:pt-10'>
+      <div class='grid md:grid-cols-2 justify-center items-center h-120 md:h-100 relative md:pt-10'>
         <div class='md:order-1 order-2'>
           <Graph_team />
         </div>

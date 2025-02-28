@@ -10,11 +10,11 @@ import { Link } from 'react-router-dom'
 
 const Notification_task = () => {
   return (
-    <div class='h-min pb-20  '>
-      <div class='pt-20 flex justify-center items-center text-center'>
+    <div class='h-min md:pb-20 pb-8  '>
+      <div class='md:pt-20 pt-10 flex justify-center items-center text-center'>
         <div>
-          <div class='w-[60%] mx-20'><img src={img1} alt="" /></div>
-          <h1 class=' font-black text-4xl'>Your Productivity Powerhouse</h1>
+          <div class='md:w-[60%] w-[40%] mx-20'><img src={img1} alt="" /></div>
+          <h1 class=' font-black md:text-4xl text-2xl'>Your Productivity Powerhouse</h1>
           <p class='md:w-150 mt-4'>Aligno offers everything you need to stay organised, collaborate seamlessly  and achieve your goals all in one placve.</p>
         </div>
       </div>
@@ -37,11 +37,11 @@ const Notification_task = () => {
                 class='px-10 md:mr-2 w-[60%] mt-1 font-Roboto text-orange-225 text-sm md:text-base font-medium md:py-1 py-1.5 border-none ring-2 pl-10 ring-gray-300 focus:ring-grey-500 focus:ring-2'
               />
 
-              {/* <button >
+              <button >
                 <Link to="/Sign_up" class="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
                   Subscribe
                 </Link>
-              </button> */}
+              </button>
             </form>
           </div>
         </div>
@@ -83,8 +83,8 @@ const Notification_task = () => {
         </div>
       </div>
 
-      <div class='grid md:grid-cols-3 relative md:mt-0 mt-20 p-5 '>
-        <div class='md:h-0 h-80'>  <h1 class='font-bold'>Select a month to below to get started.</h1></div>
+      <div class='grid md:grid-cols-3 relative md:mt-0 mt-10 p-5 '>
+        <div class='md:h-0 h-80'>  <h1 class='font-bold'></h1></div>
         <div>
           <Calender />
         </div>
