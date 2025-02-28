@@ -1,5 +1,5 @@
 import React from 'react'
-import Graph_team from './Graph_Team'
+import Graph_team from '../Team_collaboration/Graph_team'
 import { Link } from 'react-router-dom'
 
 const Progress_team = () => {
