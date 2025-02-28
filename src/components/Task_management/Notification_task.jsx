@@ -13,7 +13,9 @@ const Notification_task = () => {
     <div class='h-min md:pb-20 pb-8  '>
       <div class='md:pt-20 pt-10 flex justify-center items-center text-center'>
         <div>
-          <div class='md:w-[60%] w-[40%] mx-20'><img src={img1} alt="" /></div>
+          <div class='flex justify-center items-center'>
+            <div class='md:w-[60%] w-[40%] '><img src={img1} alt="" /></div>
+          </div>
           <h1 class=' font-black md:text-4xl text-2xl'>Your Productivity Powerhouse</h1>
           <p class='md:w-150 mt-4'>Aligno offers everything you need to stay organised, collaborate seamlessly  and achieve your goals all in one placve.</p>
         </div>

@@ -56,7 +56,7 @@ function Socials({ links }) {
 
     return (
         <div>
-            <div className="class=' grid grid-cols-5 md:gap-1 gap-6 p-4 pl-0 md:text-2xl text-lg'">
+            <div className="class=' grid grid-cols-5 md:gap-1 p-4 pl-0 md:text-2xl text-lg'">
                 {links.map((link, index) => (
                     <Link
                         key={index}
@@ -114,7 +114,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div class='grid md:grid-cols-4 grid-cols-2 md:gap-30 gap-5'>
+            <div class='grid md:grid-cols-4 grid-cols-2 md:gap-30 gap-2'>
 
 
                 <Footext h1="Features" links={linksSetOne} />

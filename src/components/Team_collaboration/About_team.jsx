@@ -7,10 +7,10 @@ const About_team = () => {
     <div class='md:mb-10 mb-8'>
       <div class='bg-linear-to-t  from-arrow-purple-104 to-light-red-181 md:h-80 h-90'>
         <div>
-          <div class='md:pl-20 pl-5 pt-10 md:pr-150 pr-5'>
+          <div class='md:pl-20 pl-10 pt-10 md:pr-150 pr-10'>
             <div >
               <h1 class="font-poppins text-2xl font-extrabold md:pr-50">About Team Management Feature</h1>
-              <p class='font-Roboto text-base font-normal p-10 md:pr-40 pl-0'>Keep everyone on the same page with built in communication tools , file sharing and real time updates </p>
+              <p class='font-Roboto text-base font-normal md:p-10 p-6 md:pr-40 pl-0'>Keep everyone on the same page with built in communication tools , file sharing and real time updates </p>
             </div>
 
             <button >

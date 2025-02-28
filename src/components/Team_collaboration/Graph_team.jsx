@@ -54,7 +54,7 @@ const Graph_team = () => {
         };
       
   return (
-    <div className=" my-2 md:w-full w-[99%]  md:p-10 rounded-2xl ">
+    <div className=" my-2 md:w-full w-[99%] p-5 md:p-10 rounded-2xl ">
       {/* <h2 className="text-2xl font-bold text-center mb-4">Line Chart</h2> */}
       <Line data={data} options={options} />
     </div>
