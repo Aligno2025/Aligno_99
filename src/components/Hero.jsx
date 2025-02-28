@@ -21,7 +21,7 @@ const Hero = () => {
     }, { scope: container });
 
     return (
-        <div ref={container} className='headerbackground h-dvh md:grid md:grid-cols-5 gap-2 justify-center items-center text-center'>
+        <div ref={container} className='headerbackground md:h-screen h-120 md:grid md:grid-cols-5 gap-2 justify-center items-center text-center'>
             <div className='invisible md:visible hero-element'>
                 <img className='w-50 md:pt-60 pl-5' src={img1} alt="Illustration 1" />
             </div>
