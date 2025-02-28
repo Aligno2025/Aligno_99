@@ -19,7 +19,7 @@ const Hero_task = () => {
             </Link>
           </button>
         </div>
-        <div class='w-[70%] mx-10 mt-8 md:mt-0'>
+        <div class='w-[70%] mx-10 mt-8 md:mt-0 flex justify-center items-center'> 
           <img src={img1} alt="" />
         </div>
       </div>
