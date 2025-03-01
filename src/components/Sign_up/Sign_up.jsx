@@ -133,7 +133,7 @@ const Sign_up = () => {
                             </button>
                         </div>
                         <div className="text-center">
-                            <a href="#" className=" text-orange-225 text-sm">No account yet? Sign In</a>
+                            <a href="#" className=" text-orange-225 text-sm">No account yet? Sign Up</a>
                         </div>
                     </form>
 
