@@ -94,7 +94,7 @@ const Calendar = () => {
             </div>
 
             {/* Calendar Navigation */}
-            <div class='absolute top-15 md:left-10 left-0 p-5  bg-white shadow-lg rounded-lg'>
+            <div className='absolute top-15 md:left-10 left-0 p-5  bg-white shadow-lg rounded-lg'>
               <div className="flex justify-between ">
                 <select value={months[selectedDate.month()]} onChange={handleMonthChange} className="px-4 py-1 rounded font-bold hover:border-black hover:border-1 mb-2">
                   {months.map((month) => (

@@ -46,7 +46,7 @@ const Main_task = () => {
         <BackToTopButton />
       </div>
 
-    <div class='relative z-1'>
+    <div className='relative z-1'>
         {components.map(({ component, id }) => (
           <div
             key={id}

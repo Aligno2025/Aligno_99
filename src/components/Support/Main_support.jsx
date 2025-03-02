@@ -41,12 +41,12 @@ const Main_support = () => {
   return (
     <div>
      {/* Header stays on top with higher z-index */}
-     <div class='relative z-10'>
+     <div className='relative z-10'>
         <Header />
         <BackToTopButton />
       </div>
 
-    <div class='relative z-1'>
+    <div className='relative z-1'>
         {components.map(({ component, id }) => (
           <div
             key={id}

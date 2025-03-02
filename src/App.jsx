@@ -51,7 +51,7 @@ function App() {
 
     <>
       {/* Header stays on top with higher z-index */}
-      <div class='relative z-10'>
+      <div className='relative z-10'>
         <Header />
         <BackToTopButton />
       </div>
@@ -62,7 +62,7 @@ function App() {
           <div
             key={id}
             id={id}
-            class='animated-section opacity-0 translate-y-52'
+            className='animated-section opacity-0 translate-y-52'
           >
             {component}
           </div>

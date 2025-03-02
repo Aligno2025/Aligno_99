@@ -60,15 +60,15 @@ const Sign_up = () => {
     };
 
     return (
-        <div ref={container} class='min-h-screen mb-20'>
+        <div ref={container} className='min-h-screen mb-20'>
             {/* Header stays on top with higher z-index */}
       <div style={{ position: 'relative', zIndex: 10 }}>
         <Header />
       </div>
-            <div class='md:grid  md:grid-cols-4 gap-1 pl-10 pr-10 bg-white'>
+            <div className='md:grid  md:grid-cols-4 gap-1 pl-10 pr-10 bg-white'>
 
-                <div class='md:relative md:visible invisible absolute Sign_up-element' >
-                    <div class='md:w-70 md:mt-90'><img src={img1} alt="" /></div>
+                <div className='md:relative md:visible invisible absolute Sign_up-element' >
+                    <div className='md:w-70 md:mt-90'><img src={img1} alt="" /></div>
                 </div>
 
                 <div className="md:col-span-2 flex justify-center items-center Sign_up-element ">
@@ -140,8 +140,8 @@ const Sign_up = () => {
 
                 </div>
 
-                <div class='invisible md:visible md:w-70 md:mt-40 absolute md:relative Sign_up-element'>
-                    <img class='object-contain' src={img2} alt="" />
+                <div className='invisible md:visible md:w-70 md:mt-40 absolute md:relative Sign_up-element'>
+                    <img className='object-contain' src={img2} alt="" />
                 </div>
 
             </div>

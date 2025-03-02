@@ -43,7 +43,7 @@ const main_team = () => {
   return (
     <div>
      {/* Header stays on top with higher z-index */}
-     <div class='relative z-10'>
+     <div className='relative z-10'>
         <Header />
         <BackToTopButton />
       </div>

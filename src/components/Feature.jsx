@@ -2,8 +2,8 @@ import React from 'react'
 
 const Feature = () => {
   return (
-    <div class='relative'>
-        <div class="grid grid-cols-2 gap-10 absolute w-130 top-5 -left-60 rounded bg-white p-10 ">
+    <div className='relative'>
+        <div className="grid grid-cols-2 gap-10 absolute w-130 top-5 -left-60 rounded bg-white p-10 ">
         <div>
             <h1>Task management</h1>
             <p>Create, organise and proritize tasks with ease </p>
