@@ -33,7 +33,7 @@ function BackToTopButton() {
   }, []);
 
   return (
-    <div className="fixed bottom-4 right-8">
+    <div className="fixed bottom-4 right-4">
       {isVisible && (
         <button
           type="button"
