@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import dayjs from 'dayjs';
 import { FaGreaterThan, FaLessThan } from "react-icons/fa6";
-import { Link } from 'react-router-dom'
 
 const months = [
   'January', 'February', 'March', 'April', 'May', 'June', 'July',
@@ -65,6 +64,9 @@ const Calendar = () => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5944b56 (new adjustment)
     <div className="md:max-w-lg max-w-70 mx-auto mt-25 p-5 bg-white shadow-lg rounded-lg md:mr-2">
       <div>
         <select value={months[selectedDate.month()]} onChange={handleMonthChange} className="px-4 py-1 rounded font-bold hover:border-black hover:border-2 mb-2 mt-10">
@@ -94,21 +96,27 @@ const Calendar = () => {
               <button className="text-gray-500" onClick={() => setIsCalendarVisible(false)}>Cancel</button>
               <button className="bg-orange-500 border-2 border-orange-500 hover:bg-white hover:text-black text-white px-4 py-2 rounded-md" onClick={() => setIsCalendarVisible(false)}>Done</button>
             </div>
+<<<<<<< HEAD
 =======
     <di>
       <div >
         <div className='grid md:grid-cols-3 gap-6 md:gap-2 md:pl-10 md:pr-10 p-4 pb-20'>
 >>>>>>> ced7316 (new ajustment)
+=======
+>>>>>>> 5944b56 (new adjustment)
 
-           
             {/* Calendar Navigation */}
+<<<<<<< HEAD
 <<<<<<< HEAD
             <div className='absolute top-15 md:left-10 left-0 p-5  bg-white shadow-lg rounded-lg'>
 =======
             <div class='rounded-lg w-full '>
 >>>>>>> ced7316 (new ajustment)
+=======
+            <div className='absolute top-15 md:left-10 left-0 p-5  bg-white shadow-lg rounded-lg'>
+>>>>>>> 5944b56 (new adjustment)
               <div className="flex justify-between ">
-                <select value={months[selectedDate.month()]} onChange={handleMonthChange} className="md:px-4 md:py-1 rounded font-bold hover:border-black hover:border-1 mb-2">
+                <select value={months[selectedDate.month()]} onChange={handleMonthChange} className="px-4 py-1 rounded font-bold hover:border-black hover:border-1 mb-2">
                   {months.map((month) => (
                     <option key={month} value={month}> {month} {selectedDate.format('YYYY')} </option>
                   ))}
@@ -122,10 +130,10 @@ const Calendar = () => {
                   </button>
                 </div>
               </div>
-              <button className="px-4 md:px-2 py-1 border-1 border-amber-48 text-orange-225 rounded hover:bg-black" onClick={() => setSelectedDate(selectedDate.add(1, 'year'))}>
+              <button className="px-4 py-1 border-1 border-amber-48 text-orange-225 rounded hover:bg-black" onClick={() => setSelectedDate(selectedDate.add(1, 'year'))}>
                 Next year
               </button>
-              <button className="ml-2 px-4 md:px-2 py-1 border-1 border-amber-48 text-orange-225 rounded hover:bg-black" onClick={() => setSelectedDate(selectedDate.subtract(1, 'year'))}>
+              <button className="ml-2 px-4 py-1 border-1 border-amber-48 text-orange-225 rounded hover:bg-black" onClick={() => setSelectedDate(selectedDate.subtract(1, 'year'))}>
                 Previous Year
               </button>
               {/* Calendar Grid */}
@@ -146,32 +154,8 @@ const Calendar = () => {
                 ))}
               </div>
             </div>
-
-          <div className="max-w-70 md:max-w-[90%] mx-auto md:mt-30 p-5  md:mr-2">
-          <div className="flex justify-between">
-              <button className="text-gray-500" onClick={() => setIsCalendarVisible(false)}>Cancel</button>
-              <button className="bg-orange-500 text-white px-4 py-2 rounded-md" onClick={() => setIsCalendarVisible(false)}>Done</button>
-            </div>
-            <select value={months[selectedDate.month()]} onChange={handleMonthChange} className="px-4 py-1 rounded font-bold hover:border-black hover:border-2 mb-2 mt-10">
-              {months.map((month) => (
-                <option key={month} value={month}> {month} {selectedDate.format('YYYY')} </option>
-              ))}
-            </select>
-            <div className="text-gray-700 font-semibold mb-2">Month</div>
-            <div ref={scrollContainerRef} className="relative w-full overflow-x-auto scrollbar-hide cursor-grab" onMouseDown={handleMouseDown} onMouseLeave={handleMouseLeave} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove}>
-              <div className="inline-flex space-x-2">
-                {months.map((month) => (
-                  <button
-                    key={month}
-                    onClick={() => toggleCalendarPopup(month)} // Show the calendar popup when month is clicked
-                    className={`px-4 py-2 border-2 border-gray-400 rounded-md whitespace-nowrap ${selectedMonth === month ? 'border-2 border-orange-500' : 'bg-gray-200'}`}
-                  >
-                    {month}
-                  </button>
-                ))}
-              </div>
-            </div>
           </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
        
 =======
@@ -191,8 +175,11 @@ const Calendar = () => {
         </div>
 
 >>>>>>> ced7316 (new ajustment)
+=======
+       
+>>>>>>> 5944b56 (new adjustment)
       </div>
-    </di>
+    </div>
   );
 };
 
