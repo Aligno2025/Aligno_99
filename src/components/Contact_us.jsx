@@ -68,7 +68,7 @@ const Contact_us = () => {
      <div onClick={() => setIsModalOpen(true)} className="hover:text-orange-225 font-Roboto text-base font-medium">Contact Us</div>
 
     {isModalOpen && (
-        <div ref={modalRef} className="fixed inset-0 bg-gray-500/70 flex md:justify-center md:items-center z-30 h-dvh">
+        <div ref={modalRef} className="fixed inset-0 bg-gray-500/70 flex md:justify-center md:items-center z-30">
           <div className="bg-white md:p-12 p-5 md:pt-20 opacity-100 shadow-md md:max-w-xl max-w-xs md:w-full ">
             <h2 className="text-3xl font-bold text-amber-48 font-Roboto">Get In Touch</h2>
             <p className='text-xs font-medium mt-2'>Get in touch with our team</p>

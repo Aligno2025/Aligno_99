@@ -23,6 +23,9 @@ function Bar(props) {
 const Chart = () => {
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5944b56 (new adjustment)
         <div className='p-8 pt-2 md:p-10 grid md:grid-cols-4 md:gap-10 md:bg-linear-to-t  from-arrow-purple-104 to-light-red-181 md:min-h-dvh'>
             <div className='md:col-span-3'>
                 <Dashboard />
@@ -35,6 +38,7 @@ const Chart = () => {
                         heading='Task Management'
                         text='Streamlined task management for individuals and teams'
                     />
+<<<<<<< HEAD
                 </div>
                 <div>
                     <span className='md:pr-60 pr-[95%] pt-8 rounded inline-block bg-purple-185'></span>
@@ -68,6 +72,17 @@ const Chart = () => {
                         />
                     </div>
 >>>>>>> ced7316 (new ajustment)
+=======
+                </div>
+                <div>
+                    <span className='md:pr-60 pr-[95%] pt-8 rounded inline-block bg-purple-185'></span>
+                    <Bar
+                        circle
+                        heading='Team Collaboration'
+                        text='Real time collaboration with seamless communication'
+                    />
+
+>>>>>>> 5944b56 (new adjustment)
                 </div>
             </div>
         </div>
