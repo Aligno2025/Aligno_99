@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom'
 
 const Hero_task = () => {
   return (
+<<<<<<< HEAD
     <div className='bg-linear-to-t from-arrow-purple-104 to-light-red-181 md:h-dvh h-[145%]'>
+=======
+    <div class='bg-linear-to-t from-arrow-purple-104 to-light-red-181'>
+>>>>>>> ced7316 (new ajustment)
 
 
       <div className='grid md:grid-cols-2 justify-center items-center p-10 md:pt-20 '>
