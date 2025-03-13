@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+
+  /* ......... */
+  --font-poppins: "Poppins", sans-serif;
+  --font-Roboto: "Roboto", serif;
+
+  /* ........... */
+  --color-amber-48: rgba(48, 176, 199, 1);
+  --color-light-ambere-48: rgba(48, 176, 199, 0.7);
+  --color-orange-225: rgba(255, 149, 0, 1);
+  --color-light-orange-255 :rgba(255, 149, 0, 0.7);
+  --color-red-250 :rgba(250, 82, 82, 1);
+  --color-purple-185 :rgba(186, 104, 200, 1);
+  --color-light-purple-185 :rgba(186, 104, 200, 0.7);
+  --color-ash-242 :rgba(34, 139, 230, 0.1);
+  --color-ash-243 :rgba(242, 244, 248, 1);
+
+
+  /* ..Gradient. */
+  --color-light-red-181: rgba(255, 163, 181, 0.2601);
+  --color-arrow-purple-104: rgba(186, 104, 200,0.360);
+  --color-purple-overlay-104: rgba(186, 104, 200, 0.36);
+
+
+  --container-5xl: 64rem;
+  --container-3xl: 48rem;
+}
+
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: 0;  /* Firefox */
+  }
+
+  .headerbackground {
+    background: rgb(179,237,249);
+    
+    background: linear-gradient(90deg,
+     rgba(179, 237, 249, 0.360) 0%, 
+     rgba(255,255,255,1) 13%, 
+     rgba(255, 255, 255, 0.284) 84%, 
+     rgba(193, 239, 249, 0.360) 100%);
+     
+    }
+}
+
+
