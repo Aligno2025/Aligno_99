@@ -5,19 +5,9 @@ import { Link } from 'react-router-dom'
 
 const Hero_task = () => {
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div className='bg-linear-to-t from-arrow-purple-104 to-light-red-181 md:h-dvh h-[145%]'>
-=======
     <div class='bg-linear-to-t from-arrow-purple-104 to-light-red-181'>
->>>>>>> ced7316 (new ajustment)
-=======
-    <div className='bg-linear-to-t from-arrow-purple-104 to-light-red-181 md:h-dvh h-[145%]'>
->>>>>>> 5944b56 (new adjustment)
-
-
-      <div className='grid md:grid-cols-2 justify-center items-center p-10 md:pt-20 '>
-        <div className='md:p-20 mt-5 order-last md:order-first'>
+      <div className='grid md:grid-cols-2 justify-center items-center p-10 md:pt-30 md:pb-30 '>
+        <div className='md:p-10 mt-5 order-last md:order-first'>
           <h1 className='text-orange-225 font-black md:text-4xl text-2xl'>Task Management</h1>
           <p className='md:mt-10 mt-2'>Create, organize and prioritize tasks effortlessly with a user friendly interface that makes staying on top your workload a breeze.</p>
 

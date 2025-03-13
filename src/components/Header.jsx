@@ -30,14 +30,14 @@ const Header = () => {
 
 
   return (
-    <div className="absolute w-full">
-      <nav className="bg-white h-16 pt-4 md:pr-10 pr-0 md:pl-10 w-full justify-evenly md:justify-between flex border-b border-gray-300">
+    <div className="absolute w-full @container">
+      <nav className="bg-white h-16 pt-4 pl-4 pr-4   @5xl:pr-10  @5xl:pl-10 w-full justify-evenly md:justify-between flex border-b border-gray-300">
         <div>
           <Link to="/" className='font-poppins text-2xl text-amber-48 font-extrabold'> Aligno
           </Link>
         </div>
 
-        <div className="md:invisible visible">
+        <div className="md:invisible visible md:absolute relative md:ml-0 ml-8">
           <form className="relative flex text-gray-400 focus-within:text-gray-600 mr-10 items-center">
             <LuSearch className="absolute w-5 h-5 ml-3 pointer-events-none" />
             <input type="text"
@@ -47,6 +47,8 @@ const Header = () => {
           </form>
         </div>
 
+        {/* small screen */}
+
         <div className="text-3xl block md:invisible z-20">
           <button onClick={toggleNavbar}>{isOpen ? <IoCloseSharp /> : <LuSquareMenu />}</button>
         </div>
@@ -55,7 +57,7 @@ const Header = () => {
           <div ref={dropdownRef} className="top-0 left-0 absolute h-screen w-screen z-10 bg-white text-center">
             <ul className="grid grid-rows-5 gap-6 justify-center mt-35 items-center font-Roboto text-md">
               <li>
-                <Link to="/" className='hover:text-orange-225 font-Roboto text-md font-medium'> Home
+                <Link to="/" className='hover:text-orange-225 font-Roboto text-base font-medium'> Home
                 </Link>
               </li>
 
@@ -70,21 +72,21 @@ const Header = () => {
                   <div className='absolute left-0 right-0 top-6 z-2'>
                   <div className="grid space-x-10 space-y-10 bg-white text-gray-600 shadow-md justify-center items-center text-center rounded-2xl p-5">
                     <div>
-                      <Link to="/Main_task" className='mb-2 font-bold hover:text-orange-225'><MdTask className='inline text-xl' /> Task_management
-                        <p className='text-sm'>Create, organise and proritize tasks with ease </p> </Link>
+                      <Link to="/Main_task" className='mb-2 font-Roboto font-bold hover:text-orange-225'><MdTask className='inline text-xl' /> Task_management
+                        <p className='text-sm font-poppins font-normal pt-2'>Create, organise and proritize tasks with ease </p> </Link>
                     </div>
                     <div>
-                      <Link to="/Sign_up" className='mb-2 font-bold hover:text-orange-225'><FaCalendarAlt className='inline text-xl' /> Calendars
-                        <p className='text-sm'>Book meetings with calendar integration</p>
+                      <Link to="/Main_task" className='mb-2 f font-Robotoont-bold hover:text-orange-225'><FaCalendarAlt className='inline text-xl' /> Calendars
+                        <p className='text-sm font-poppins font-normal pt-2'>Book meetings with calendar integration</p>
                       </Link>
                     </div>
                     <div>
-                      <Link to="/Main_team" className='mb-2 font-bold hover:text-orange-225'><RiTeamFill className='inline text-xl' /> Team Collaboration
-                        <p className='text-sm'>Collaborate in real time and manage teams </p> </Link>
+                      <Link to="/Main_team" className='mb-2 font-Roboto font-bold hover:text-orange-225'><RiTeamFill className='inline text-xl' /> Team Collaboration
+                        <p className='text-sm font-poppins font-normal pt-2'>Collaborate in real time and manage teams </p> </Link>
                     </div>
                     <div>
-                      <Link to="/Sign_up" className='mb-2 font-bold hover:text-orange-225'><IoMdNotifications className='inline text-xl' /> Notifications
-                        <p className='text-sm'>Stay on track with reminders from notifications</p>
+                      <Link to="/Main_task" className='mb-2 f font-Robotoont-bold hover:text-orange-225'><IoMdNotifications className='inline text-xl' /> Notifications
+                        <p className='text-sm font-poppins font-normal pt-2'>Stay on track with reminders from notifications</p>
                       </Link>
                     </div>
                   </div>
@@ -92,7 +94,7 @@ const Header = () => {
                 )}
               </div>
               <li>
-                <Link to="/Main_support" className='hover:text-orange-225 font-Roboto text-md font-medium'> Support
+                <Link to="/Main_support" className='hover:text-orange-225 font-Roboto text-base font-medium'> Support
                 </Link>
               </li>
 
@@ -107,10 +109,15 @@ const Header = () => {
           </div>
         )}
 
+
+        
+
+        {/* medium and large screens */}
+
         <div className="invisible md:visible absolute md:relative">
-          <ul className="invisible md:visible md:flex md:gap-6 md:items-center font-Roboto text-md">
+          <ul className="invisible md:visible md:flex gap-4 @5xl:gap-6 md:items-center font-Roboto text-sm @5xl:text-md">
             <li>
-              <Link to="/" className=' hover:text-orange-225 font-Roboto text-md font-medium'> Home
+              <Link to="/" className=' hover:text-orange-225 font-Roboto text-base font-medium'> Home
               </Link>
             </li>
 
@@ -125,21 +132,21 @@ const Header = () => {
                 <div className='absolute -left-40 top-6 z-2'>
                   <div className="grid grid-cols-2 space-x-10 space-y-10 bg-white text-gray-600 shadow-md h-70 w-160 rounded-2xl p-10">
                     <div>
-                      <Link to="/Main_task" className='mb-2 font-bold hover:text-orange-225'><MdTask className='inline text-xl' /> Task_management
-                        <p className='text-sm'>Create, organise and proritize tasks with ease </p> </Link>
+                      <Link to="/Main_task" className='mb-2 font-Roboto font-bold hover:text-orange-225'><MdTask className='inline text-xl' /> Task_management
+                        <p className='text-sm font-poppins font-normal pt-2'>Create, organise and proritize tasks with ease </p> </Link>
                     </div>
                     <div>
-                      <Link to="/Sign_up" className='mb-2 font-bold hover:text-orange-225'><FaCalendarAlt className='inline text-xl' /> Calendars
-                        <p className='text-sm'>Book meetings with calendar integration</p>
+                      <Link to="/Main_task" className='mb-2 font-Roboto font-bold hover:text-orange-225'><FaCalendarAlt className='inline text-xl' /> Calendars
+                        <p className='text-sm font-poppins font-normal pt-2'>Book meetings with calendar integration</p>
                       </Link>
                     </div>
                     <div>
-                      <Link to="/Main_team" className='mb-2 font-bold hover:text-orange-225'><RiTeamFill className='inline text-xl' /> Team Collaboration
-                        <p className='text-sm'>Collaborate in real time and manage teams </p> </Link>
+                      <Link to="/Main_team" className='mb-2 font-Roboto font-bold hover:text-orange-225'><RiTeamFill className='inline text-xl' /> Team Collaboration
+                        <p className='text-sm font-poppins font-normal pt-2'>Collaborate in real time and manage teams </p> </Link>
                     </div>
                     <div>
-                      <Link to="/Sign_up" className='mb-2 font-bold hover:text-orange-225'><IoMdNotifications className='inline text-xl' /> Notifications
-                        <p className='text-sm'>Stay on track with reminders from notifications</p>
+                      <Link to="/Main_task" className='mb-2 font-Roboto font-bold hover:text-orange-225'><IoMdNotifications className='inline text-xl' /> Notifications
+                        <p className='text-sm font-poppins font-normal pt-2'>Stay on track with reminders from notifications</p>
                       </Link>
                     </div>
                   </div>
@@ -147,18 +154,18 @@ const Header = () => {
               )}
             </div>
             <li>
-              <Link to="/Main_support" className=' hover:text-orange-225 font-Roboto text-md font-medium'> Support
+              <Link to="/Main_support" className=' hover:text-orange-225 font-Roboto text-base font-medium'> Support
               </Link>
             </li>
 
             <Contact_us />
 
-            <form className="relative flex text-gray-400 focus-within:text-gray-600 mr-10 items-center">
+            <form className="relative flex text-gray-400 focus-within:text-gray-600 ml-4 items-center">
               <LuSearch className="absolute w-5 h-5 ml-3 pointer-events-none" />
               <input type="text"
                 id="search" name="search"
                 placeholder="Search" aria-labelledby="Search"
-                className="px-3 font-Roboto text-base font-medium py-1 border-none ring-2 pl-10 rounded ring-gray-300 focus:ring-grey-500 focus:ring-2" />
+                className="px-3 font-Roboto text-base @5xl:w-50 w-30 font-medium py-1 border-none ring-2 pl-10 rounded ring-gray-300 focus:ring-grey-500 focus:ring-2" />
             </form>
 
             <button>

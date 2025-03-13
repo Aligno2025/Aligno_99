@@ -13,8 +13,6 @@ import Error from './components/Error.jsx';
 
 
 
-
-
 createRoot(document.getElementById('root')).render(
   <StrictMode >
     <HashRouter>

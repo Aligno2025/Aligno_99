@@ -54,12 +54,13 @@ const Graph = () => {
         };
       
   return (
-    <div className=" my-2 md:w-80 w-[99%] border-b-1 border-t-1 border-l-1 border-gray-300  md:p-2 rounded-2xl ">
-      {/* <h2 className="text-2xl font-bold text-center mb-4">Line Chart</h2> */}
-      <Line data={data} options={options} />
+    <div className='@container'>
+      <div className=" my-2 @5xl:w-80 w-[99%] border-b-1 border-t-1 border-l-1 border-gray-300  md:p-2 rounded-2xl ">
+        {/* <h2 className="text-2xl font-bold text-center mb-4">Line Chart</h2> */}
+        <Line data={data} options={options} />
+      </div>
     </div>
   );
 };
 
 export default Graph;
-

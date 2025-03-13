@@ -21,50 +21,39 @@ const Hero = () => {
     }, { scope: container });
 
     return (
-<<<<<<< HEAD
-        <div ref={container} className='headerbackground h-dvh md:grid md:grid-cols-5 gap-2 justify-center items-center text-center'>
-=======
-        <div ref={container} className='bg-gradient-to-r from-[rgba(179,237,249,0.36)] via-[rgba(255,255,255,1)] via-13% via-[rgba(255,255,255,0.284)] via-84% to-[rgba(193,239,249,0.36)] md:h-dvh h-120 md:grid md:grid-cols-5 gap-2 justify-center items-center text-center'>
->>>>>>> 5944b56 (new adjustment)
-            <div className='invisible md:visible hero-element'>
-                <img className='w-50 md:pt-60 pl-5' src={img1} alt="Illustration 1" />
-            </div>
-
-            <div className='md:col-span-3 hero-element'>
-                <div>
-                    <h1 className='md:text-5xl/15 text-3xl/10 font-extrabold font-poppins md:mt-20'>
-                        All-In-One <span className='text-amber-48'>Task Management</span> and <span className='text-orange-225'>Collaboration</span> Platform
-                    </h1>
-                    <p className='mt-5 pl-10 pr-10 font-Roboto md:text-lg/8 text-xs/5 font-normal '>
-                        The ultimate productivity tool to streamline task management, set deadlines and collaborate effectively, all in one place.
-                    </p>
-
-                    <div className='grid grid-cols-3 md:gap-5 justify-center md:mt-10 mt-5 text-xs md:text-base font-medium font-poppins'>
-                        <p><span className='p-1.5 rounded-2xl inline-block mr-1 md:mx-4 bg-purple-185'></span>Align Tasks</p>
-                        <p><span className='p-1.5 rounded-2xl inline-block mr-1 md:mx-4 bg-orange-225'></span>Empower Teams</p>
-                        <p><span className='p-1.5 rounded-2xl inline-block mr-1 md:mx-4 bg-red-250'></span>Achieve More</p>
-                    </div>
-
-                    <button className='md:mr-20 mr-6 md:pt-16 pt-8'>
-                        <Link to="/Sign_up" className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" >
-                            Get Started
-                        </Link>
-                    </button>
-
-                    <button>
-                        <Link to="/Error" className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48">
-                            Learn More
-                        </Link>
-                    </button>
+        <div className='@container'>
+            <div ref={container} className='headerbackground md:grid md:grid-cols-5 gap-2 justify-center items-center text-center '>
+                <div className='invisible md:visible hero-element absolute md:relative'>
+                    <img className='w-[100%] object-contain md:pt-60 pl-5' src={img1} alt="Illustration 1" />
                 </div>
-            </div>
-
-<<<<<<< HEAD
-            <div className='hero-element'>
-=======
-            <div className='hero-element md:relative absolute'>
->>>>>>> 5944b56 (new adjustment)
-                <img className='w-50 md:pb-40 pl-10 pr-5 md:visible invisible' src={img2} alt="Illustration 2" />
+                <div className='md:col-span-3 hero-element md:pt-30 pt-25 md:pb-30 pb-20'>
+                    <div>
+                        <h1 className='@5xl:text-4xl/15 @3xl:text-2xl/10 text-3xl/10  font-extrabold font-poppins '>
+                            All-In-One <span className='text-amber-48'>Task Management</span> and <span className='text-orange-225'>Collaboration</span> Platform
+                        </h1>
+                        <p className='mt-5 pl-10 pr-10 font-Roboto md:text-lg/8 text-xs/5 font-normal '>
+                            The ultimate productivity tool to streamline task management, set deadlines and collaborate effectively, all in one place.
+                        </p>
+                        <div className='flex gap-2 @5xl:gap-5 justify-center md:mt-10 mt-5 text-xs @5xl:text-base md:font-medium font-poppins'>
+                            <p><span className='p-1.5 rounded-2xl inline-block mr-1 md:mx-4 bg-purple-185'></span>Align Tasks</p>
+                            <p><span className='p-1.5 rounded-2xl inline-block mr-1 md:mx-4 bg-orange-225'></span>Empower Teams</p>
+                            <p><span className='p-1.5 rounded-2xl inline-block mr-1 md:mx-4 bg-red-250'></span>Achieve More</p>
+                        </div>
+                        <button className='md:mr-20 mr-6 md:pt-16 pt-8'>
+                            <Link to="/Sign_up" className="md:px-8 px-6 md:py-4 py-2 bg-amber-48 font-Roboto text-sm md:text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" >
+                                Get Started
+                            </Link>
+                        </button>
+                        <button>
+                            <Link to="/Error" className="md:px-8 px-6 md:py-4 py-2  font-Roboto text-sm md:text-base font-medium text-black hover:bg-amber-48 hover:text-white hover:border-amber-48 border-2 ">
+                                Learn More
+                            </Link>
+                        </button>
+                    </div>
+                </div>
+                <div className='hero-element absolute md:relative'>
+                    <img className='w-[100%] object-contain pr-5 md:visible invisible' src={img2} alt="Illustration 2" />
+                </div>
             </div>
         </div>
     );

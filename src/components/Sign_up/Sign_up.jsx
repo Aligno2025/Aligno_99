@@ -60,41 +60,22 @@ const Sign_up = () => {
     };
 
     return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <div ref={container} className='min-h-screen mb-20'>
-=======
+
         <div ref={container} class=' mb-20'>
->>>>>>> ced7316 (new ajustment)
-=======
-        <div ref={container} className='min-h-screen mb-20'>
->>>>>>> 5944b56 (new adjustment)
+
             {/* Header stays on top with higher z-index */}
       <div style={{ position: 'relative', zIndex: 10 }}>
         <Header />
       </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <div className='md:grid  md:grid-cols-4 gap-1 pl-10 pr-10 bg-white'>
 
-                <div className='md:relative md:visible invisible absolute Sign_up-element' >
-                    <div className='md:w-70 md:mt-90'><img src={img1} alt="" /></div>
-=======
             <div class='md:grid  md:grid-cols-4 gap-1 pl-5 pr-5 bg-white'>
 
                 <div class='md:relative md:visible invisible absolute Sign_up-element' >
-                    <div class='h-45 w-[100%] md:mt-150 object-contain'><img src={img1} alt="" /></div>
->>>>>>> ced7316 (new ajustment)
-=======
-            <div className='md:grid  md:grid-cols-4 gap-1 pl-10 pr-10 bg-white'>
-
-                <div className='md:relative md:visible invisible absolute Sign_up-element' >
-                    <div className='md:w-70 md:mt-90'><img src={img1} alt="" /></div>
->>>>>>> 5944b56 (new adjustment)
+                    <div class='h-45 w-[100%] md:mt-130 object-contain'><img src={img1} alt="" /></div>
                 </div>
 
                 <div className="md:col-span-2 flex justify-center items-center Sign_up-element ">
-                    <form onSubmit={handleSubmit} className=" p-10 md:max-w-full max-w-sm mt-30 border border-gray-300">
+                    <form onSubmit={handleSubmit} className=" p-10 md:max-w-full max-w-sm mt-20 border border-gray-300">
                         <h2 className="md:text-4xl text-2xl font-bold text-center text-amber-48 mb-2">Sign Up to Aligno</h2>
                         <p className="text-center text-gray-600 text-xs mb-6">Please sign up to continue</p>
                         <div className="mb-4">
@@ -141,15 +122,15 @@ const Sign_up = () => {
                         <button type="submit" className="w-full bg-amber-48 text-white py-2">Sign Up</button>
                         <div className="text-center text-sm my-4 text-gray-600">Or Sign Up with:</div>
                         <div className="flex justify-center space-x-4 mb-4">
-                            <button className="boader border-2 text-sm text-black p-1 md:pl-6 md:pr-8 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
+                            <button className="boader border-2 text-sm text-black p-1 md:pl-4 md:pr-4 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
                                 <FaGoogle />
                                 <span>Google</span>
                             </button>
-                            <button className="boader border-2 text-sm text-black p-1 md:pl-6 md:pr-8 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
+                            <button className="boader border-2 text-sm text-black p-1 md:pl-4 md:pr-4 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
                                 <FaApple />
                                 <span>Apple</span>
                             </button>
-                            <button className="boader border-2 text-sm text-black p-1 md:pl-6 md:pr-8 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
+                            <button className="boader border-2 text-sm text-black p-1 md:pl-4 md:pr-4 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
                                 <FaXTwitter />
                                 <span>Twitter</span>
                             </button>
@@ -162,18 +143,9 @@ const Sign_up = () => {
 
                 </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <div className='invisible md:visible md:w-70 md:mt-40 absolute md:relative Sign_up-element'>
-                    <img className='object-contain' src={img2} alt="" />
-=======
-                <div class='invisible md:visible md:mt-40 absolute md:relative Sign_up-element'>
+
+                <div class='invisible md:visible md:mt-30 absolute md:relative Sign_up-element'>
                     <img class='h-45 w-[100%] object-contain' src={img2} alt="" />
->>>>>>> ced7316 (new ajustment)
-=======
-                <div className='invisible md:visible md:w-70 md:mt-40 absolute md:relative Sign_up-element'>
-                    <img className='object-contain' src={img2} alt="" />
->>>>>>> 5944b56 (new adjustment)
                 </div>
 
             </div>

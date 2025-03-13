@@ -26,20 +26,8 @@ const faqs = [
 const Frequent_support = () => {
   return (
     <div className='bg-linear-to-t from-arrow-purple-104 to-light-red-181 min-h-100 md:mt-10 '>
-
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <div className="p-6 max-w-2xl mx-auto bg-white relative text-center mb-10">
-        <div className='mb-10'>
-=======
       <div className="p-6 max-w-2xl mx-auto bg-white relative text-center md:mb-20 mb-10">
         <div class='mb-10'>
->>>>>>> ced7316 (new ajustment)
-=======
-      <div className="p-6 max-w-2xl mx-auto bg-white relative text-center mb-10">
-        <div className='mb-10'>
->>>>>>> 5944b56 (new adjustment)
           <h2 className="md:text-4xl text-2xl font-bold text-red-400 mb-2">Frequently Asked Questions</h2>
           <p>Here are some frequently asked questions on Aligno</p>
         </div>

@@ -16,11 +16,11 @@ const Hero_support = () => {
 
   return (
     <div>
-      <div className='grid md:grid-cols-2 justify-center items-center p-10 pt-20 md:h-dvh h-270'>
-        <div>
-          <div className='md:ml-30'>
-            <h1 className='md:text-4xl text-3xl font-bold font-Poppins pr-20'>Need Help to Get Started?</h1>
-            <p className='mt-6 pr-10'>Whether you're new to Aligno or just need help navigating its features, we're here to guide you every step of the way</p>
+      <div className='grid md:grid-cols-2 justify-center items-center p-10 pt-20 '>
+        <div className=''>
+          <div className='md:pr-16 pr-0 md:pl-16 pl-0 pt-10'>
+            <h1 className='md:text-4xl text-3xl font-bold font-Poppins '>Need Help to Get Started?</h1>
+            <p className='mt-6 m:pr-10'>Whether you're new to Aligno or just need help navigating its features, we're here to guide you every step of the way</p>
             <ul className="list-decimal list-inside space-y-4 mt-10 mb-16 font-bold">
               {items.map((item, index) => (
                 <li key={index} className="flex items-center">
@@ -36,10 +36,10 @@ const Hero_support = () => {
 
           </div>
         </div>
-        <div className='relative'>
-          <span className='pt-110 pr-2 md:left-1 rounded inline-block bg-orange-225 absolute md:visible invisible'></span>
+        <div className='relative pt-10 md:pt-0'>
+          <span className='md:pt-110 pr-2 md:left-1 rounded inline-block bg-orange-225 absolute md:visible invisible'></span>
           <div className='md:ml-30'>
-            <h1 className='md:text-4xl text-3xl font-bold font-Poppins pr-30'>Personalised Support</h1>
+            <h1 className='md:text-4xl text-3xl font-bold font-Poppins md:pr-30'>Personalised Support</h1>
             <p className='mt-6 pr-10'>Whether you're new to Aligno or just need help navigating its features, we're here to guide you every step of the way</p>
             <ul className="list-decimal list-inside space-y-4 mt-10 mb-16 font-bold">
               {items.map((item, index) => (
