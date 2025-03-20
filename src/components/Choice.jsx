@@ -13,7 +13,7 @@ function BarText(props) {
     return (
 
         <div>
-            <div className='pt-20 pl-8'>
+            <div className='pt-2'>
                 <h1 className='font-semibold mb-2'>{props.heading}</h1>
                 <p className='text-sm font-normal font-Roboto'>{props.text}</p>
             </div>
@@ -27,16 +27,16 @@ function BarText(props) {
 
 const Choice = () => {
     return (
-        <div className='md:pr-20 md:pl-20 pr-10 pl-10 md:pb-6 pb-4  '>
+        <div className='md:pr-20 md:pl-20 pr-10 pl-10 pb-14 '>
             <div className='text-center md:p-12 pb-15'>
                 <h1 className="font-poppins md:text-2xl text-3xl font-bold">Why Teams Choose <span className="text-amber-48">Aligno</span></h1>
                 <p className='font-Roboto' >Designed for teams that want to do more. Here’s Aligno in action</p>
             </div>
 
-            <div className=' grid md:grid-cols-6 md:gap-20 md:pb-15 pb-8 gap-6 font-Roboto text-base'>
+            <div className=' grid md:grid-cols-6 md:gap-20 md:pb-15 pb-8 gap-12 font-Roboto text-base'>
 
                 <span className=' col-span-2'>
-                    <div className=' text-purple-185 bg-ash-242  absolute -z-1 p-10 pr-20'>
+                    <div className=' text-purple-185 bg-ash-242 -z-1 p-10  w-40'>
                         <MdTask className=' text-4xl  ' /> 
                     </div>
                     <BarText
@@ -46,8 +46,8 @@ const Choice = () => {
                 </span>
 
                 <span className=' col-span-2'>
-                    <div className=' text-purple-185 bg-ash-242 absolute -z-1 p-10 pr-20'>
-                        <RiTeamFill className=' text-4xl  ' /> 
+                    <div className=' text-purple-185 bg-ash-242 -z-1 p-10 w-40'>
+                        <RiTeamFill className=' text-4xl  inline-block' /> 
                     </div>
                     <BarText
                         heading='Collaborative Spaces'
@@ -56,7 +56,7 @@ const Choice = () => {
 
                 </span>
                 <span className=' col-span-2'>
-                    <div className=' text-purple-185 bg-ash-242  absolute -z-1 p-10 pr-20'>
+                    <div className=' text-purple-185 bg-ash-242 -z-1 p-10  w-40'>
                         <IoMdNotifications className=' text-4xl  ' />
                     </div>
                     <BarText
@@ -66,7 +66,7 @@ const Choice = () => {
                 </span>
 
                 <span className=' col-span-2'>
-                    <div className=' text-purple-185 bg-ash-242  absolute -z-1 p-10 pr-20'>
+                    <div className=' text-purple-185 bg-ash-242 -z-1 p-10  w-40'>
                         <FaCalendarAlt className=' text-4xl  ' />
                     </div>
                     <BarText
@@ -76,7 +76,7 @@ const Choice = () => {
                 </span>
 
                 <span className=' col-span-2'>
-                    <div className=' text-purple-185 bg-ash-242  absolute -z-1 p-10 pr-20'>
+                    <div className=' text-purple-185 bg-ash-242 -z-1 p-10  w-40'>
                         <IoMdAnalytics className=' text-4xl  ' />
                     </div>
                     <BarText
@@ -86,7 +86,7 @@ const Choice = () => {
                 </span>
 
                 <span className=' col-span-2'>
-                    <div className=' text-purple-185 bg-ash-242  absolute -z-1 p-10 pr-20'>
+                    <div className=' text-purple-185 bg-ash-242 -z-1 p-10  w-40'>
                         <PiVideoConferenceFill className=' text-4xl  ' />
                     </div>
                     <BarText
@@ -98,7 +98,7 @@ const Choice = () => {
             </div>
 
             <div className='grid md:grid-cols-3 gap-2'>
-                <p className='col-span-2 text-sm font-normal font-Roboto mb-8 md:mt-0'>All features have been built for ease and ultimate productivity to streamline task management,set deadlines and collaborate effectively</p>
+                <p className='col-span-2 text-sm font-normal font-Roboto mb-4 md:mt-0'>All features have been built for ease and ultimate productivity to streamline task management,set deadlines and collaborate effectively</p>
 
                 <button >
                     <Link to="/Sign_up" className="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48">

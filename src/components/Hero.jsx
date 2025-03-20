@@ -45,7 +45,7 @@ const Hero = () => {
                             </Link>
                         </button>
                         <button>
-                            <Link to="/Error" className="md:px-8 px-6 md:py-4 py-2  font-Roboto text-sm md:text-base font-medium text-black hover:bg-amber-48 hover:text-white hover:border-amber-48 border-2 ">
+                            <Link to="/Sign_up" className="md:px-8 px-6 md:py-4 py-2  font-Roboto text-sm md:text-base font-medium text-black hover:bg-amber-48 hover:text-white hover:border-amber-48 border-2 ">
                                 Learn More
                             </Link>
                         </button>

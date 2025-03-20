@@ -65,11 +65,11 @@ const Contact_us = () => {
   return (
     <div>
 
-     <div onClick={() => setIsModalOpen(true)} className="hover:text-orange-225 font-Roboto text-base font-medium">Contact Us</div>
+     <div onClick={() => setIsModalOpen(true)} className="hover:text-orange-225 font-Roboto text-base font-medium relative">Contact Us</div>
 
     {isModalOpen && (
-        <div ref={modalRef} className="fixed h-dvh inset-0 bg-gray-500/70 flex md:justify-center md:items-center z-30">
-          <div className="bg-white md:p-12 p-5 md:pt-20 opacity-100 shadow-md md:max-w-xl max-w-xs md:w-full ">
+        <div ref={modalRef} className="fixed h-dvh w-dvw inset-0 bg-gray-500/70 flex md:justify-center md:items-center z-60">
+          <div className="bg-white md:p-12 p-5 md:pt-20  opacity-100 shadow-md md:max-w-xl max-w-xs md:w-full relative z-60">
             <h2 className="text-3xl font-bold text-amber-48 font-Roboto">Get In Touch</h2>
             <p className='text-xs font-medium mt-2'>Get in touch with our team</p>
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
@@ -147,7 +147,7 @@ const Contact_us = () => {
             <button
               type="button"
               onClick={closeModal}
-              className="absolute md:right-90 right-14  top-5 text-2xl text-red-950"
+              className="absolute md:right-5 md:top-6 right-3  top-5 text-2xl text-red-950 z-40"
             >
               {isModalOpen ? <IoCloseSharp /> : close}
             </button>
