@@ -58,17 +58,51 @@ const Sign_in = () => {
     const togglePasswordVisibility = () => setShowPassword(!showPassword);
     const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfirmPassword);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (validate()) {
-            console.log('Form submitted successfully!');
-        }
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (validate()) {
+    //         console.log('Form submitted successfully!');
+    //     }
+    // };
 
     const closeModal = () => {
         setIsModalOpen(!isModalOpen);
       };
   
+
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        if (!validate()) return;
+    
+        try {
+          const res = await fetch("https://aligno-server.onrender.com/api/auth", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({
+              email,
+              password,
+              confirmPassword,
+            }),
+          });
+            console.log(res);
+    
+          const data = await res.json();
+    
+          if (!res.ok) {
+            throw new Error(data.message || "Signup failed");
+          }
+    
+          alert("Signup successful!");
+          closeModal();
+          window.location.href = "/Sign_in";
+        } catch (err) {
+          alert(err.message);
+        }
+      };
 
     return (
         <div ref={container} className='mb-20'>
