@@ -108,6 +108,9 @@ const Sign_in = () => {
       };
   
 
+      const togglePasswordVisibility = () => setShowPassword(!showPassword);
+      const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfirmPassword);
+  
     return (
         <div ref={container} className='mb-20'>
             <div onClick={() => setIsModalOpen(true)} className="hover:text-orange-225 font-Roboto text-orange-225 text-sm relative cursor-pointer text-center">No account yet? Sign Up</div>
