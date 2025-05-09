@@ -13,7 +13,7 @@ function Boards({ bigtext, smalltext, btn, img, bgColor, padding, btnSize }) {
       </div>
       <div className="flex flex-row justify-between items-center ">
         <button className="px-2 md:px-6 py-2 bg-amber-48 font-Roboto text-xs font-medium text-white border-2 border-amber-48 hover:bg-gray-50/5 hover:text-white transition-all duration-300">
-          <Link to="/Sign_up">{btn}</Link>
+          <Link to="/Sign_in">{btn}</Link>
         </button>
         <div>
           <img className="h-30 w-30 object-contain" src={img} alt="" />
@@ -32,7 +32,7 @@ const Three_steps = () => {
         <Boards
           bigtext="Sign Up for Free"
           smalltext="Our features have been built for ease and productivity."
-          btn="Sign in"
+          btn="Sign up"
           img={img6}
           bgColor="bg-light-purple-185"
           padding="p-4"

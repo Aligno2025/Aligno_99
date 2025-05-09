@@ -91,6 +91,7 @@ const linksSocial = [
 
 const Footer = () => {
     return (
+
         <div class=' pr-10 pl-10 pb-8 pt-10'>
             <div class='grid md:grid-cols-2 gap-10'>
                 <div class='order-2 md:order-1'>

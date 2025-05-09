@@ -11,17 +11,11 @@ import team from '../assets/img/team.png'
 
 const Sectors = () => {
   return (
-// <<<<<<< HEAD
-//     <div className='md:pt-10 pt-2 md:pb-10 pb-4 '>
-    
 
-//       <div className=' grid md:grid-cols-5 gap-4 justify-center items-center text-center pr-20 pl-20'>
-// =======
     <div class='pt-10 md:pb-20 pb-10 @container'>
     
 
       <div class=' grid md:grid-cols-5 gap-4 justify-center items-center text-center @5xl:pr-20 @5xl:pl-20 pr-10 pl-10'>
-{/* >>>>>>> ced7316 (new ajustment) */}
 
       <span className='border-1 font-Roboto text-base rounded-xl p-8 px-20 md:px-0 border-orange-225 flex flex-col items-center justify-center'> 
       <IoBriefcaseOutline className='text-4xl text-purple-185' /> 

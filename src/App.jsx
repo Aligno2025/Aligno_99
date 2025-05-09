@@ -12,6 +12,7 @@ import Actions from './components/Actions'
 import Get from './components/Get'
 import Footer from './components/Footer'
 import BackToTopButton from './components/BackToTopButton';
+import Sign_up from './components/Sign_up/Sign_up';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -54,6 +55,7 @@ function App() {
       <div className='relative z-10'>
         <Header />
         <BackToTopButton />
+        {/* <Sign_up /> */}
       </div>
 
       {/* Wrap other components in a lower z-index container */}
