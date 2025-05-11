@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { FaGoogle } from "react-icons/fa";
@@ -10,7 +10,8 @@ import img2 from '../../assets/img/Sign_up_img2.png'
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa";
 import Sign_up from '../../components/Sign_up/Sign_up'
-
+import { login } from '../Authetication';
+import { AuthContext } from '../AuthContext.jsx';
 
 gsap.registerPlugin(useGSAP);
 
@@ -30,10 +31,21 @@ const Sign_in = () => {
         });
     }, { scope: container });
 
+
+    // Form State
+        const [form, setForm] = useState({
+            name: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            role: ''
+        });
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
+    const { login } = useContext(AuthContext);
 
     const validate = () => {
         const errors = {};
@@ -52,14 +64,34 @@ const Sign_in = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (validate()) {
-            // Handle form submission
-            console.log('Form submitted');
-        }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm(prev => ({ ...prev, [name]: value }));
     };
 
+
+   const handleSubmit = async (e) => {
+          e.preventDefault();
+          if (!validate()) return;
+  
+          try {
+              await login(form);
+              setMessage('login successfully!');
+              alert("login  successful!");
+              window.location.href = "/"; // ← this navigates with reloading
+
+                 // Automatically log in the user
+             login(response.user || form); // You can also store token if available
+             
+          } catch (err) {
+              console.error(err);
+              const errorMessage =
+                  err?.response?.data?.message || err?.message || 'login failed';
+              setMessage(errorMessage);
+              alert("login failed!");
+          }
+          
+      };
 
     return (
 
@@ -92,9 +124,10 @@ const Sign_in = () => {
                                 <label className="block text-gray-700 text-sm ">Email Address</label>
                                 <input
                                     type="email"
-                                    value={email}
-                                    placeholder='nathbassey@gmail.com'
-                                    onChange={(e) => setEmail(e.target.value)}
+                                        name="email"
+                                        value={form.email}
+                                        placeholder='nathbassey@gmail.com'
+                                        onChange={handleChange}
                                     className={`mt-1 p-2 w-full border-b-2 ${errors.password ? 'border-red-500' : 'border-gray-400 focus:border-gray-600'
                                         } bg-gray-100`}
                                 />
@@ -106,10 +139,11 @@ const Sign_in = () => {
                             <div className="mb-4 relative">
                                 <label className="block text-gray-700 text-sm">Password</label>
                                 <input
-                                    type={showPassword ? 'text' : 'password'}
-                                    value={password}
-                                    placeholder='enoverlabIT&?'
-                                    onChange={(e) => setPassword(e.target.value)}
+                                   type={showPassword ? 'text' : 'password'}
+                                        name="password"
+                                        value={form.password}
+                                        placeholder='enoverlabIT&?'
+                                        onChange={handleChange}
                                     className={`mt-1 p-2 w-full border-b-2 ${errors.password ? 'border-red-500' : 'border-gray-400 focus:border-gray-600'
                                         } bg-gray-100`}
                                 />

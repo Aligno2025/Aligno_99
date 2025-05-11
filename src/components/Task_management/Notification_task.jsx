@@ -4,11 +4,15 @@ import { MdOutlineMail } from "react-icons/md";
 import Calender from '../Task_management/Calender';
 import { GiCheckMark } from "react-icons/gi";
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../AuthContext.jsx';
 
 
 
 
 const Notification_task = () => {
+  const { isLoggedIn, logout } = useContext(AuthContext);
+
+
   return (
 
     <div class='h-min  '>
@@ -38,11 +42,11 @@ const Notification_task = () => {
                 class='px-10 md:mr-2 w-[60%] mt-1 font-Roboto text-orange-225 text-sm md:text-base font-medium md:py-1 py-1.5 border-b-3 border-gray-300  ring-0 pl-10 bg-gray-50  focus:ring-grey-500 focus:ring-2'
               />
 
-              <button >
+{!isLoggedIn && <button >
                 <Link to="/Sign_up" className="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
                   Subscribe
                 </Link>
-              </button>
+              </button>}
             </form>
           </div>
         </div>

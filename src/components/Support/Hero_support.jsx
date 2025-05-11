@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { GiCheckMark } from "react-icons/gi";
 import Contact_us from '../Contact_us';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthContext.jsx';
 
 
 const Hero_support = () => {
+  const { isLoggedIn, logout } = useContext(AuthContext);
 
   const items = [
     'Setting up your workspace',
@@ -49,11 +51,11 @@ const Hero_support = () => {
                 </li>
               ))}
             </ul>
-            <button>
+            {!isLoggedIn && <button>
               <Link to="/Sign_up" className="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"> Schedule call
               </Link>
 
-            </button>
+            </button>}
           </div>
         </div>
       </div>

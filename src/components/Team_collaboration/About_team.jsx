@@ -1,8 +1,11 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { Link } from 'react-router-dom'
-
+import { AuthContext } from '../AuthContext.jsx'
 
 const About_team = () => {
+  const { isLoggedIn, logout } = useContext(AuthContext);
+
+
   return (
     <div className='md:mb-10 mb-8'>
       <div className='bg-linear-to-t  from-arrow-purple-104 to-light-red-181 md:h-80 h-90'>
@@ -14,11 +17,11 @@ const About_team = () => {
               <p class='font-Roboto text-base font-normal pt-10 pb-10'>Keep everyone on the same page with built in communication tools , file sharing and real time updates </p>
             </div>
 
-            <button >
+            {!isLoggedIn && <button >
               <Link to="/Sign_up" className="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-amber-48 border-2 hover:text-amber-48" smooth>
                 Show Demo
               </Link>
-            </button>
+            </button>}
           </div>
         </div>
       </div>

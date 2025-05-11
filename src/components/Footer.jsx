@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { MdOutlineMail } from "react-icons/md";
 import img2 from "../assets/img/Google_button.png";
 import img1 from "../assets/img/App_button.png";
@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaLinkedin } from "react-icons/fa6";
 import { Link } from 'react-router-dom'
-
+import { AuthContext } from './AuthContext.jsx';
 
 function Footext({ h1, links }) {
 
@@ -56,11 +56,9 @@ function Socials({ links }) {
 
     return (
         <div>
-{/* <<<<<<< HEAD
-            <div className="className=' grid grid-cols-5 md:gap-1 p-4 pl-0 md:text-2xl text-lg'">
-======= */}
+
             <div className="class=' flex gap-2 p-4 pl-0 md:text-2xl text-lg'">
-{/* >>>>>>> ced7316 (new ajustment) */}
+
                 {links.map((link, index) => (
                     <Link
                         key={index}
@@ -90,6 +88,8 @@ const linksSocial = [
 
 
 const Footer = () => {
+const { isLoggedIn, logout } = useContext(AuthContext);
+
     return (
 
         <div class=' pr-10 pl-10 pb-8 pt-10'>
@@ -109,11 +109,11 @@ const Footer = () => {
                             aria-labelledby='Enter your email to get the notifi....'
                             class='px-10 w-[60%]  md:w-[50%] h-9 mt-1  font-Roboto text-sm md:text-base font-medium md:py-1 py-1.5 border-none ring-2 pl-10 ring-gray-300 focus:ring-grey-500 focus:ring-2'
                         />
-                        <button >
+                        {!isLoggedIn &&  <button >
                             <Link to="/Sign_up" class="px-4 md:px-8 py-2.5 ml-1 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"  smooth="true">
                                 Sign In
                             </Link>
-                        </button>
+                        </button>}
 
                     </form>
                 </div>
@@ -129,12 +129,13 @@ const Footer = () => {
                 <div>
                     <h1 class='font-Roboto font-medium text-lg pb-4'>Socials</h1>
                     <div class='flex gap-2 pb-3'>
-                        <Link to="/Sign_up" class='md:h-14 h-10 md:w-20 w-[80%] object-fill'>
+                    {!isLoggedIn &&  <Link to="/Sign_up" class='md:h-14 h-10 md:w-20 w-[80%] object-fill'>
                             <img src={img1} alt="" />
-                        </Link>
-                        <Link to="/Sign_up" className='md:h-14 h-10 md:w-20 w-[80%] object-fill' >
+                        </Link>}
+
+                        {!isLoggedIn &&  <Link to="/Sign_up" className='md:h-14 h-10 md:w-20 w-[80%] object-fill' >
                             <img src={img2} alt="" />
-                        </Link>
+                        </Link>}
                     </div>
 
                     <p>Join Us</p>

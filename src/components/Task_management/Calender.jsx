@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import dayjs from 'dayjs';
 import { FaGreaterThan, FaLessThan } from "react-icons/fa6";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthContext.jsx';
 
 const months = [
   'January', 'February', 'March', 'April', 'May', 'June', 'July',
@@ -16,6 +17,7 @@ const Calendar = () => {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [isCalendarVisible, setIsCalendarVisible] = useState(false); // State for the calendar popup
+  const { isLoggedIn, logout } = useContext(AuthContext);
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -142,11 +144,11 @@ const Calendar = () => {
               <p class='font-Roboto text-base font-normal pb-10 pt-5'>Sync your tasks with your favourite calendar applications for a comprehensive view of your deadlines and priorities.</p>
             </div>
 
-            <button >
+            {!isLoggedIn && <button >
               <Link to="/Sign_up" class="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
                 Show Demo
               </Link>
-            </button>
+            </button>}
           </div>
         </div>
 

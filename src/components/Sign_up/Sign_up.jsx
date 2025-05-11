@@ -1,10 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
 import { register } from '../Authetication';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../AuthContext';
+
 
 gsap.registerPlugin(useGSAP);
 
@@ -12,6 +14,7 @@ const Sign_in = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const container = useRef();
     const modalRef = useRef(null);
+    const { login } = useContext(AuthContext);
 
     useGSAP(() => {
         gsap.from('.Sign_up-element', {
@@ -37,6 +40,7 @@ const Sign_in = () => {
         confirmPassword: '',
         role: ''
     });
+    
     const [errors, setErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -45,10 +49,6 @@ const Sign_in = () => {
 
     const validate = () => {
         const errors = {};
-        // if (!(name?.trim() ?? false)) {
-        //     errors.name = "Name is required";
-        // }
-
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailRegex.test(form.email)) {
@@ -85,13 +85,21 @@ const Sign_in = () => {
         try {
             await register(form);
             setMessage('Registered successfully!');
+            alert("Registration  successful!");
             closeModal();
             navigate('/Sign_in'); // ← this navigates without reloading
+
+
+
+             // Automatically log in the user
+             login(response.user || form); // You can also store token if available
+             
         } catch (err) {
             console.error(err);
             const errorMessage =
                 err?.response?.data?.message || err?.message || 'Registration failed';
             setMessage(errorMessage);
+            alert("Registration failed!");
         }
         
     };

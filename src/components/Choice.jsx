@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom'
 import { MdTask } from "react-icons/md";
@@ -7,6 +7,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdAnalytics } from "react-icons/io";
 import { PiVideoConferenceFill } from "react-icons/pi";
+import { AuthContext } from './AuthContext.jsx';
 
 function BarText(props) {
 
@@ -26,6 +27,8 @@ function BarText(props) {
 
 
 const Choice = () => {
+const { isLoggedIn, logout } = useContext(AuthContext);
+
     return (
         <div className='md:pr-20 md:pl-20 pr-10 pl-10 pb-14 '>
             <div className='text-center md:p-12 pb-15'>
@@ -100,11 +103,11 @@ const Choice = () => {
             <div className='grid md:grid-cols-3 gap-2'>
                 <p className='col-span-2 text-sm font-normal font-Roboto mb-4 md:mt-0'>All features have been built for ease and ultimate productivity to streamline task management,set deadlines and collaborate effectively</p>
 
-                <button >
+                {!isLoggedIn && <button >
                     <Link to="/Sign_up" className="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48">
                         Explore all features
                     </Link>
-                </button>
+                </button>}
             </div>
         </div>
     )
