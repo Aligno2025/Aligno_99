@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
 import { register } from '../Authetication';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(useGSAP);
 
@@ -40,7 +41,7 @@ const Sign_in = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [message, setMessage] = useState('');
-
+    const navigate = useNavigate();
 
     const validate = () => {
         const errors = {};
@@ -84,9 +85,15 @@ const Sign_in = () => {
         try {
             await register(form);
             setMessage('Registered successfully!');
+            closeModal();
+            navigate('/Sign_in'); // ← this navigates without reloading
         } catch (err) {
-            setMessage(err.response?.data?.message || 'Registration failed');
+            console.error(err);
+            const errorMessage =
+                err?.response?.data?.message || err?.message || 'Registration failed';
+            setMessage(errorMessage);
         }
+        
     };
 
 
@@ -100,7 +107,7 @@ const Sign_in = () => {
             </div>
 
             {isModalOpen && (
-                <div className="fixed top-0 left-0 h-screen w-screen inset-0 flex justify-center items-center bg-gray-500/70 z-60">
+                <div className="fixed top-0 left-0 h-200 w-screen inset-0 flex justify-center items-center bg-gray-500/70 z-60">
                     <div ref={modalRef} className="bg-white p-6 mt-20 rounded-lg shadow-lg relative w-full max-w-md">
                         <button
                             type="button"
