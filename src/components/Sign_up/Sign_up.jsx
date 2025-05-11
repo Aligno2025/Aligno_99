@@ -30,22 +30,30 @@ const Sign_in = () => {
 
     // Form State
     const [form, setForm] = useState({
+        name: '',
         email: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        role: ''
     });
     const [errors, setErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [message, setMessage] = useState('');
 
+
     const validate = () => {
         const errors = {};
+        // if (!(name?.trim() ?? false)) {
+        //     errors.name = "Name is required";
+        // }
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailRegex.test(form.email)) {
             errors.email = 'Invalid email address';
         }
+
         if (form.password.length < 8) {
             errors.password = 'Password must be at least 8 characters long';
         }
@@ -81,6 +89,7 @@ const Sign_in = () => {
         }
     };
 
+
     return (
         <div ref={container} className='mb-20'>
             <div
@@ -105,6 +114,20 @@ const Sign_in = () => {
                             <form onSubmit={handleSubmit} className="w-full">
                                 <h2 className="text-2xl font-bold text-center text-amber-48 mb-2">Sign up to Aligno</h2>
                                 <p className="text-center text-gray-600 text-xs mb-6">New user, sign up to continue</p>
+                                <div className="mb-4">
+                                    <label className="block text-gray-700 text-sm">Full Name</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={form.name}
+                                        placeholder='nath bassey'
+                                        onChange={handleChange}
+                                        className={`mt-1 p-2 w-full border-b-2 bg-gray-100 `}
+                                    />
+                                    {/* {errors.name && (
+                                        <p className="text-red-500 text-xs">{errors.name}</p>
+                                    )} */}
+                                </div>
 
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-sm">Email Address</label>
@@ -150,6 +173,18 @@ const Sign_in = () => {
                                         {showConfirmPassword ? <FaRegEye /> : <FaRegEyeSlash />}
                                     </button>
                                     {errors.confirmPassword && <p className="text-red-500 text-xs">{errors.confirmPassword}</p>}
+                                </div>
+
+                                <div>
+                                    <label className="block text-gray-700 text-sm">Role</label>
+                                    <select
+                                        value={form.role}
+                                        onChange={handleChange}
+                                        className="w-full p-2 border-b-2 bg-gray-100"
+                                    >
+                                        <option value="user">User</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
                                 </div>
 
                                 <button type="submit" className="w-full bg-amber-48 text-white py-2 mt-4">Sign up</button>
