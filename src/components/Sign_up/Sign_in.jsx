@@ -8,6 +8,7 @@ import img1 from '../../assets/img/Sign_up_img1.png';
 import img2 from '../../assets/img/Sign_up_img2.png';
 import Sign_up from '../../components/Sign_up/Sign_up';
 import { AuthContext } from '../AuthContext.jsx';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(useGSAP);
 
@@ -33,6 +34,8 @@ const Sign_in = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [message, setMessage] = useState('');
     const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
+
 
     const validate = () => {
         const errors = {};
@@ -66,7 +69,8 @@ const Sign_in = () => {
             await login(form);
             setMessage('Login successful!');
             alert('Login successful!');
-            window.location.href = '/';
+            navigate('/'); // ← this navigates without reloading
+
         } catch (err) {
             console.error(err);
             const errorMessage =
