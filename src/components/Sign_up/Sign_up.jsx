@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
-import { register } from '../Authetication';
+// import { register } from '../authAPI';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';
 

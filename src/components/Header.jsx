@@ -2,13 +2,10 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import { SlArrowDown } from "react-icons/sl";
 import { IoCloseSharp } from "react-icons/io5";
 import { LuSearch, LuSquareMenu } from "react-icons/lu";
-import { MdTask } from "react-icons/md";
-import { FaCalendarAlt } from "react-icons/fa";
-import { RiTeamFill } from "react-icons/ri";
-import { IoMdNotifications } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import Contact_us from './Contact_us';
+// import { logout } from './authAPI.jsx';
 import { AuthContext } from '../components/AuthContext.jsx';
 import FeaturesBtn from './FeaturesBtn.jsx';
 
@@ -29,7 +26,26 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
-
+  const handleLogout = async () => {
+    try {
+      // Optional: Call your backend to invalidate the session/token
+      await logout(); // assume this is your API function
+  
+      // Remove any stored tokens or session info
+      localStorage.removeItem('token'); // or sessionStorage.removeItem('token');
+  
+      // Optionally clear user context/state
+      setUser(null); // if you're using context or state
+  
+      // Navigate to sign-in or home
+      window.location.href = "/";
+  
+    } catch (err) {
+      console.error('Logout failed:', err);
+      alert('Logout failed. Please try again.');
+    }
+  };
+  
 
 
   return (
@@ -133,28 +149,25 @@ const Header = () => {
             </form>
 
             {!isLoggedIn ? (
-              <li>
-                <Link
-                  to="/Sign_in"
-                  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
-                >
-                  Sign in
-                </Link>
-              </li>
-            ) : (
-              <li>
-                <button
-                  onClick={() => {
-                    logout();
-                    // Optionally navigate to sign-in or home after logout
-                    // navigate('/Sign_in'); <-- use this if you're using `useNavigate`
-                  }}
-                  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
-                >
-                  Sign out
-                </button>
-              </li>
-            )}
+  <li>
+    <Link
+      to="/Sign_in"
+      className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
+    >
+      Sign in
+    </Link>
+  </li>
+) : (
+  <li>
+    <button
+      onClick={handleLogout}
+      className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
+    >
+      Sign out
+    </button>
+  </li>
+)}
+
 
           </ul>
         </div>
