@@ -43,10 +43,7 @@ const Header = () => {
   };
   
 
-  if (loading) {
-    return <nav>Loading...</nav>; // or just return null
-}
-
+  if (loading) return null; // or return a loader
 
   return (
     <div className="absolute w-full @container">
