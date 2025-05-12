@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
-// import { register } from '../authAPI';
+import { apiRegister } from '../authAPI';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';
 
@@ -83,7 +83,7 @@ const Sign_in = () => {
         if (!validate()) return;
 
         try {
-            await register(form);
+            await apiRegister(form);
             setMessage('Registered successfully!');
             alert("Registration  successful!");
             closeModal();
