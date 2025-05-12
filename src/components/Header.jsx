@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef,useContext } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { SlArrowDown } from "react-icons/sl";
 import { IoCloseSharp } from "react-icons/io5";
 import { LuSearch, LuSquareMenu } from "react-icons/lu";
@@ -10,13 +10,14 @@ import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import Contact_us from './Contact_us';
 import { AuthContext } from '../components/AuthContext.jsx';
+import FeaturesBtn from './FeaturesBtn.jsx';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const dropdownRef = useRef(null);
   const modalRef = useRef(null);
-const { isLoggedIn, logout } = useContext(AuthContext);
+  const { isLoggedIn, logout } = useContext(AuthContext);
 
   useEffect(() => {
     if (isOpen) {
@@ -71,32 +72,8 @@ const { isLoggedIn, logout } = useContext(AuthContext);
                 <li>Features</li>
                 <SlArrowDown className="group-hover:rotate-180 transition delay-150 duration-300 ease-in-out text-xs" />
                 {isHovered && (
-                  <div className='absolute left-0 right-0 top-6 z-2'>
-                  <div className="grid space-x-10 space-y-10 bg-white text-gray-600 shadow-md justify-center items-center text-center rounded-2xl p-5">
-                  {!isLoggedIn &&   <div>
-                      <Link to="/Sign_in" className='mb-2 font-Roboto font-bold hover:text-orange-225'><MdTask className='inline text-xl' /> Task_management
-                        <p className='text-sm font-poppins font-normal pt-2'>Create, organise and proritize tasks with ease </p> </Link>
-                    </div>}
-
-                  {!isLoggedIn &&  <div>
-                      <Link to="/Sign_in" className='mb-2 f font-Robotoont-bold hover:text-orange-225'><FaCalendarAlt className='inline text-xl' /> Calendars
-                        <p className='text-sm font-poppins font-normal pt-2'>Book meetings with calendar integration</p>
-                      </Link>
-                    </div>}
-
-                  {!isLoggedIn &&  <div>
-                      <Link to="/Sign_in" className='mb-2 font-Roboto font-bold hover:text-orange-225'><RiTeamFill className='inline text-xl' /> Team Collaboration
-                        <p className='text-sm font-poppins font-normal pt-2'>Collaborate in real time and manage teams </p> </Link>
-                    </div>}
-
-                   {!isLoggedIn && <div>
-                      <Link to="/Sign_in" className='mb-2 f font-Robotoont-bold hover:text-orange-225'><IoMdNotifications className='inline text-xl' /> Notifications
-                        <p className='text-sm font-poppins font-normal pt-2'>Stay on track with reminders from notifications</p>
-                      </Link>
-                    </div>}
-
-                  </div>
-                </div>
+                  <FeaturesBtn /> // This component will be used to show the features dropdown
+                 
                 )}
               </div>
               <li>
@@ -106,19 +83,19 @@ const { isLoggedIn, logout } = useContext(AuthContext);
 
               <Contact_us />
 
-             {!isLoggedIn && <button>
+              {!isLoggedIn && <button>
                 <li>
                   <Link to="/Sign_in" className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"> Sign in
                   </Link>
                 </li>
               </button>}
-              
+
             </ul>
           </div>
         )}
 
 
-        
+
 
         {/* medium and large screens */}
 
@@ -137,33 +114,7 @@ const { isLoggedIn, logout } = useContext(AuthContext);
               <li>Features</li>
               <SlArrowDown className="group-hover:rotate-180  text-xs" />
               {isHovered && (
-                <div className='absolute -left-40 top-6 z-2'>
-                  <div className="grid grid-cols-2 space-x-10 space-y-10 bg-white text-gray-600 shadow-md h-70 w-160 rounded-2xl p-10">
-                    
-                  {!isLoggedIn &&<div>
-                      <Link to="/Sign_in" className='mb-2 font-Roboto font-bold hover:text-orange-225'><MdTask className='inline text-xl' /> Task_management
-                        <p className='text-sm font-poppins font-normal pt-2'>Create, organise and proritize tasks with ease </p> </Link>
-                    </div>}
-
-                   {!isLoggedIn && <div>
-                      <Link to="/Sign_in" className='mb-2 font-Roboto font-bold hover:text-orange-225'><FaCalendarAlt className='inline text-xl' /> Calendars
-                        <p className='text-sm font-poppins font-normal pt-2'>Book meetings with calendar integration</p>
-                      </Link>
-                    </div>}
-
-                   {!isLoggedIn && <div>
-                      <Link to="/Sign_in" className='mb-2 font-Roboto font-bold hover:text-orange-225'><RiTeamFill className='inline text-xl' /> Team Collaboration
-                        <p className='text-sm font-poppins font-normal pt-2'>Collaborate in real time and manage teams </p> </Link>
-                    </div>}
-
-                    {!isLoggedIn && <div>
-                      <Link to="/Sign_in" className='mb-2 font-Roboto font-bold hover:text-orange-225'><IoMdNotifications className='inline text-xl' /> Notifications
-                        <p className='text-sm font-poppins font-normal pt-2'>Stay on track with reminders from notifications</p>
-                      </Link>
-                    </div>}
-
-                  </div>
-                </div>
+              <FeaturesBtn /> // This component will be used to show the features dropdown
               )}
             </div>
             <li>
@@ -181,12 +132,30 @@ const { isLoggedIn, logout } = useContext(AuthContext);
                 className="px-3 font-Roboto text-base @5xl:w-50 w-30 font-medium py-1 border-none ring-2 pl-10 rounded ring-gray-300 focus:ring-grey-500 focus:ring-2" />
             </form>
 
-            {!isLoggedIn && <button>
+            {!isLoggedIn ? (
               <li>
-                <Link to="/Sign_in" className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"> Sign in
+                <Link
+                  to="/Sign_in"
+                  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
+                >
+                  Sign in
                 </Link>
               </li>
-            </button>}
+            ) : (
+              <li>
+                <button
+                  onClick={() => {
+                    logout();
+                    // Optionally navigate to sign-in or home after logout
+                    // navigate('/Sign_in'); <-- use this if you're using `useNavigate`
+                  }}
+                  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
+                >
+                  Sign out
+                </button>
+              </li>
+            )}
+
           </ul>
         </div>
       </nav>

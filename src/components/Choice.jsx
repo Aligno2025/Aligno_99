@@ -103,11 +103,22 @@ const { isLoggedIn, logout } = useContext(AuthContext);
             <div className='grid md:grid-cols-3 gap-2'>
                 <p className='col-span-2 text-sm font-normal font-Roboto mb-4 md:mt-0'>All features have been built for ease and ultimate productivity to streamline task management,set deadlines and collaborate effectively</p>
 
-                {!isLoggedIn && <button >
+
+                {!isLoggedIn ? (
+                    <button >
                     <Link to="/Sign_up" className="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48">
                         Explore all features
                     </Link>
-                </button>}
+                </button>  
+                        ) : (
+                            <button >
+                    <Link to="/Sign_up" className="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48">
+                        Explore all features
+                    </Link>
+                </button>   
+                        )}
+
+                       
             </div>
         </div>
     )

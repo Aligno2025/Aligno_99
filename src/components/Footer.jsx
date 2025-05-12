@@ -109,11 +109,21 @@ const { isLoggedIn, logout } = useContext(AuthContext);
                             aria-labelledby='Enter your email to get the notifi....'
                             class='px-10 w-[60%]  md:w-[50%] h-9 mt-1  font-Roboto text-sm md:text-base font-medium md:py-1 py-1.5 border-none ring-2 pl-10 ring-gray-300 focus:ring-grey-500 focus:ring-2'
                         />
-                        {!isLoggedIn &&  <button >
+
+                         {!isLoggedIn ? (
+                            <button >
                             <Link to="/Sign_up" class="px-4 md:px-8 py-2.5 ml-1 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"  smooth="true">
                                 Sign In
                             </Link>
-                        </button>}
+                        </button>
+                        ) : (
+                            <button >
+                            <Link to="/" class="px-4 md:px-8 py-2.5 ml-1 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"  smooth="true">
+                                Sign In
+                            </Link>
+                        </button>
+                        )}
+
 
                     </form>
                 </div>
@@ -133,9 +143,19 @@ const { isLoggedIn, logout } = useContext(AuthContext);
                             <img src={img1} alt="" />
                         </Link>}
 
-                        {!isLoggedIn &&  <Link to="/Sign_up" className='md:h-14 h-10 md:w-20 w-[80%] object-fill' >
+                        
+                        {!isLoggedIn ? (
+                            <Link to="/Sign_up" className='md:h-14 h-10 md:w-20 w-[80%] object-fill' >
                             <img src={img2} alt="" />
-                        </Link>}
+                        </Link>
+                        ) : (
+                            <Link to="/" className='md:h-14 h-10 md:w-20 w-[80%] object-fill' >
+                            <img src={img2} alt="" />
+                        </Link>
+                        )}
+
+                        
+                        
                     </div>
 
                     <p>Join Us</p>

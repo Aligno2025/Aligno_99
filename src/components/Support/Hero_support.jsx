@@ -51,11 +51,20 @@ const Hero_support = () => {
                 </li>
               ))}
             </ul>
-            {!isLoggedIn && <button>
+            {!isLoggedIn ? (
+              <button>
               <Link to="/Sign_up" className="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"> Schedule call
               </Link>
 
-            </button>}
+            </button>
+            ) : (<button>
+              <Link to="/" className="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"> Schedule call
+              </Link>
+
+            </button>)}
+
+            
+
           </div>
         </div>
       </div>

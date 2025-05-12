@@ -15,9 +15,20 @@ function Boards({ bigtext, smalltext, btn, img, bgColor, padding, btnSize }) {
         <p className="text-sm font-lg font-Roboto h-16">{smalltext}</p>
       </div>
       <div className="flex flex-row justify-between items-center ">
-      {!isLoggedIn &&  <button className="px-2 md:px-6 py-2 bg-amber-48 font-Roboto text-xs font-medium text-white border-2 border-amber-48 hover:bg-gray-50/5 hover:text-white transition-all duration-300">
+  
+
+
+         {!isLoggedIn ? (
+          <button className="px-2 md:px-6 py-2 bg-amber-48 font-Roboto text-xs font-medium text-white border-2 border-amber-48 hover:bg-gray-50/5 hover:text-white transition-all duration-300">
           <Link to="/Sign_in">{btn}</Link>
-        </button>}
+        </button>
+                                    ) : (
+                                      <button className="px-2 md:px-6 py-2 bg-amber-48 font-Roboto text-xs font-medium text-white border-2 border-amber-48 hover:bg-gray-50/5 hover:text-white transition-all duration-300">
+          <Link to="/">{btn}</Link>
+        </button>
+                                    )}
+
+                                    
         <div>
           <img className="h-30 w-30 object-contain" src={img} alt="" />
         </div>

@@ -144,11 +144,20 @@ const Calendar = () => {
               <p class='font-Roboto text-base font-normal pb-10 pt-5'>Sync your tasks with your favourite calendar applications for a comprehensive view of your deadlines and priorities.</p>
             </div>
 
-            {!isLoggedIn && <button >
+            {!isLoggedIn ? (
+              <button >
               <Link to="/Sign_up" class="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
                 Show Demo
               </Link>
-            </button>}
+            </button>
+                          ) : (
+                            <button >
+              <Link to="/" class="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
+                Show Demo
+              </Link>
+            </button>  
+                          )}
+
           </div>
         </div>
 

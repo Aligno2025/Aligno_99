@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import img1 from '../../assets/img/Team_img2.png'
 import { MdOutlineMail } from "react-icons/md";
 import Calender from '../Task_management/Calender';
@@ -42,11 +42,23 @@ const Notification_task = () => {
                 class='px-10 md:mr-2 w-[60%] mt-1 font-Roboto text-orange-225 text-sm md:text-base font-medium md:py-1 py-1.5 border-b-3 border-gray-300  ring-0 pl-10 bg-gray-50  focus:ring-grey-500 focus:ring-2'
               />
 
-{!isLoggedIn && <button >
+
+
+              {!isLoggedIn ? (
+                <button >
                 <Link to="/Sign_up" className="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
                   Subscribe
                 </Link>
-              </button>}
+              </button>      
+                          ) : (
+                            <button >
+                <Link to="/" className="px-4 md:px-8 py-2.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" smooth>
+                  Subscribe
+                </Link>
+              </button>       
+                          )}
+
+             
             </form>
           </div>
         </div>

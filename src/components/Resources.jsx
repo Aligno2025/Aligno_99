@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import img1 from '../assets/img/Resources_img1.png' 
 
 import img2 from '../assets/img/Resources_img2.png'
 import { Link } from 'react-router-dom'
+import { AuthContext } from './AuthContext.jsx';
 
 
 
@@ -27,6 +28,9 @@ function Cards(props) {
 
 
 const Resources = () => {
+  const { isLoggedIn, logout } = useContext(AuthContext);
+
+
     return (
 
         <div className='md:p-16 p-10 bg-linear-to-t  from-arrow-purple-104 to-light-red-181 h-min @container'>
@@ -64,11 +68,20 @@ const Resources = () => {
                                 <h1 className='order-last md:order-none text-3xl font-bold font-Poppins md:mb-0 mb-5'>Resources</h1>
                                 <p className='order-first md:order-none text-sm md:text-md md:text-lg font-Roboto md:mb-10'> From detailed guides and tutorials to customer support and best practices, our resources ensure you have the knowledge and tools needed to streamline task management and enhance team collaboration.</p>
                             </div>
-                            <button >
-                                <Link to="/Sign_up" className="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48"  >
+                           
+                            {!isLoggedIn ? (
+                                <button >
+                                <Link to="/Sign_in" className="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48"  >
                                     Explore all features
                                 </Link>
                             </button>
+                                                                ) : (
+                                                                    <button >
+                                <Link to="/" className="md:px-6 px-4 py-1.5 bg-amber-48 font-Roboto md:text-base text-xs font-medium text-white hover:bg-white border-2 hover:text-amber-48"  >
+                                    Explore all features
+                                </Link>
+                            </button>
+                                                                )}
                         </div>
                     </div>
                 </div>

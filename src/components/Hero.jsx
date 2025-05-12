@@ -41,17 +41,37 @@ const Hero = () => {
                             <p><span className='p-1.5 rounded-2xl inline-block mr-1 md:mx-4 bg-orange-225'></span>Empower Teams</p>
                             <p><span className='p-1.5 rounded-2xl inline-block mr-1 md:mx-4 bg-red-250'></span>Achieve More</p>
                         </div>
-                     {!isLoggedIn &&  <button className='md:mr-20 mr-6 md:pt-16 pt-8'>
+                    
+                        {!isLoggedIn ? (
+                            <button className='md:mr-20 mr-6 md:pt-16 pt-8'>
                             <Link to="/Sign_in" className="md:px-8 px-6 md:py-4 py-2 bg-amber-48 font-Roboto text-sm md:text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" >
                                 Get Started
                             </Link>
-                        </button>}
+                        </button>
+                  ) : (
+                    <button className='md:mr-20 mr-6 md:pt-16 pt-8'>
+                            <Link to="/" className="md:px-8 px-6 md:py-4 py-2 bg-amber-48 font-Roboto text-sm md:text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" >
+                                Get Started
+                            </Link>
+                        </button>
+                  )}
 
-                       {!isLoggedIn &&  <button>
+
+                        {!isLoggedIn ? (
+                            <button>
                             <Link to="/Sign_in" className="md:px-8 px-6 md:py-4 py-2  font-Roboto text-sm md:text-base font-medium text-black hover:bg-amber-48 hover:text-white hover:border-amber-48 border-2 ">
                                 Learn More
                             </Link>
-                        </button>}
+                        </button>
+                  ) : (
+                    <button>
+                            <Link to="/" className="md:px-8 px-6 md:py-4 py-2  font-Roboto text-sm md:text-base font-medium text-black hover:bg-amber-48 hover:text-white hover:border-amber-48 border-2 ">
+                                Learn More
+                            </Link>
+                        </button>
+                  )}
+
+                 
                     </div>
                 </div>
                 <div className='hero-element absolute md:relative'>
