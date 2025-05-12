@@ -1,25 +1,33 @@
 // AuthContext.js
 import React, { createContext, useState, useEffect } from 'react';
-import { apiLogin, apiLogout } from './authAPI'; // import the renamed API functions
+import { apiLogin, apiLogout, refreshToken } from './authAPI';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
+    // Attempt to refresh session on mount
     useEffect(() => {
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        }
+        const checkSession = async () => {
+            try {
+                const response = await refreshToken();
+                setUser(response.data.user);
+            } catch (error) {
+                setUser(null);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        checkSession();
     }, []);
 
     const login = async (credentials) => {
         try {
             const response = await apiLogin(credentials);
-            const userData = response.data.user;
-            localStorage.setItem('user', JSON.stringify(userData));
-            setUser(userData);
+            setUser(response.data.user);
         } catch (error) {
             console.error('Login failed:', error);
             throw error;
@@ -29,7 +37,6 @@ export const AuthProvider = ({ children }) => {
     const logout = async () => {
         try {
             await apiLogout();
-            localStorage.removeItem('user');
             setUser(null);
         } catch (error) {
             console.error('Logout failed:', error);
@@ -40,7 +47,7 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={{ user, login, logout, isLoggedIn }}>
-            {children}
+            {!loading && children}
         </AuthContext.Provider>
     );
 };

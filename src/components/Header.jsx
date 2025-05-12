@@ -26,20 +26,16 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
+ 
+  
   const handleLogout = async () => {
+    const { logout } = useContext(AuthContext);
+  
     try {
-      // Optional: Call your backend to invalidate the session/token
-      await logout(); // assume this is your API function
+      await logout(); // ✅ Calls API and clears user state in context
   
-      // Remove any stored tokens or session info
-      localStorage.removeItem('token'); // or sessionStorage.removeItem('token');
-  
-      // Optionally clear user context/state
-      setUser(null); // if you're using context or state
-  
-      // Navigate to sign-in or home
-      window.location.href = "/";
-  
+      // ✅ Redirect after logout
+      window.location.href = "/Sign_in";
     } catch (err) {
       console.error('Logout failed:', err);
       alert('Logout failed. Please try again.');
@@ -89,7 +85,7 @@ const Header = () => {
                 <SlArrowDown className="group-hover:rotate-180 transition delay-150 duration-300 ease-in-out text-xs" />
                 {isHovered && (
                   <FeaturesBtn /> // This component will be used to show the features dropdown
-                 
+
                 )}
               </div>
               <li>
@@ -130,7 +126,7 @@ const Header = () => {
               <li>Features</li>
               <SlArrowDown className="group-hover:rotate-180  text-xs" />
               {isHovered && (
-              <FeaturesBtn /> // This component will be used to show the features dropdown
+                <FeaturesBtn /> // This component will be used to show the features dropdown
               )}
             </div>
             <li>
@@ -149,24 +145,24 @@ const Header = () => {
             </form>
 
             {!isLoggedIn ? (
-  <li>
-    <Link
-      to="/Sign_in"
-      className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
-    >
-      Sign in
-    </Link>
-  </li>
-) : (
-  <li>
-    <button
-      onClick={handleLogout}
-      className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
-    >
-      Sign out
-    </button>
-  </li>
-)}
+              <li>
+                <Link
+                  to="/Sign_in"
+                  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
+                >
+                  Sign in
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <button
+                  onClick={handleLogout}
+                  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
+                >
+                  Sign out
+                </button>
+              </li>
+            )}
 
 
           </ul>

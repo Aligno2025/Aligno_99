@@ -81,19 +81,18 @@ const Sign_in = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validate()) return;
-
+    
         try {
+            // First register the user
             await apiRegister(form);
             setMessage('Registered successfully!');
-            alert("Registration  successful!");
+            alert("Registration successful!");
             closeModal();
-            navigate('/Sign_in'); // ← this navigates without reloading
-
-
-
-             // Automatically log in the user
-             login(response.user || form); // You can also store token if available
-             
+    
+            // Automatically log in the user
+            await login({ email: form.email, password: form.password }); // ✅ Correct credentials
+    
+            navigate('/Sign_in'); // Optional: redirect after login
         } catch (err) {
             console.error(err);
             const errorMessage =
@@ -101,9 +100,8 @@ const Sign_in = () => {
             setMessage(errorMessage);
             alert("Registration failed!");
         }
-        
     };
-
+    
 
     return (
         <div ref={container} className='mb-20'>
