@@ -68,12 +68,21 @@ export const AuthProvider = ({ children }) => {
       try {
         const response = await refreshToken(); // Checks for valid refresh token
         setUser(response.data.user);
+        console.log("Refresh response:", response.data);
       } catch (error) {
         setUser(null);
       } finally {
         setLoading(false); // Done checking session
       }
+
+
+      console.log("User:", user);
+  console.log("isLoggedIn:", !!user);
+  console.log("Loading:", loading);
+
     };
+
+
 
     checkSession();
   }, []);
