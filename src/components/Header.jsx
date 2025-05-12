@@ -14,7 +14,7 @@ const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
   const dropdownRef = useRef(null);
   const modalRef = useRef(null);
-  const { isLoggedIn, logout } = useContext(AuthContext);
+  const { isLoggedIn, user, logout, loading } = useContext(AuthContext);
 
   useEffect(() => {
     if (isOpen) {
@@ -42,6 +42,10 @@ const Header = () => {
     }
   };
   
+
+  if (loading) {
+    return <nav>Loading...</nav>; // or just return null
+}
 
 
   return (
