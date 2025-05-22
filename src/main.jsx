@@ -10,6 +10,7 @@ import Main_team from './components/Team_collaboration/Main_team.jsx'
 import Main_support from './components/Support/Main_support.jsx'
 import Error from './components/Error.jsx';
 import Sign_in from './components/Sign_up/Sign_in.jsx';
+import Test from './components/Test.jsx';
 
 
 
@@ -34,6 +35,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/Main_support" element={<Main_support />} />
           <Route path="/Sign_in" element={<Sign_in />} />
           <Route path="*" element={<Error />} />
+          <Route path="Test" element={<Test />} />
         </Routes>
       </HashRouter>
     </AuthProvider>

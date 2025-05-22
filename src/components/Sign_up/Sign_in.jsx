@@ -67,9 +67,10 @@ const Sign_in = () => {
 
         try {
             await login(form);
+            console.log('Login successful');
             setMessage('Login successful!');
             alert('Login successful!');
-            navigate('/'); // ← this navigates without reloading
+            navigate('/Test'); // ← this navigates without reloading
 
         } catch (err) {
             console.error(err);
