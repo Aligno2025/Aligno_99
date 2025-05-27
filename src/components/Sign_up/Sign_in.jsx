@@ -67,19 +67,17 @@ const Sign_in = () => {
 
         try {
             await login(form);
-            console.log('Login successful');
-            setMessage('Login successful!');
-            alert('Login successful!');
-            navigate('/Test'); // ← this navigates without reloading
+              toast.success(result.message);
+      // Redirect
+      navigate("/");
 
-        } catch (err) {
-            console.error(err);
-            const errorMessage =
-                err?.response?.data?.message || err?.message || 'Login failed';
-            setMessage(errorMessage);
-            alert('Login failed!');
-        }
+    } catch (error) {
+      toast.error("An error occurred. Please try again.");
+      console.error("Login error:", error);
+    }
     };
+
+
 
     return (
         <div ref={container} className='mb-20'>

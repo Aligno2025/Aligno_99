@@ -179,9 +179,22 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await apiLogin(credentials);
       setUser(response.data.user);
-      if (response.data.accessToken) {
+      console.log('Login response data:', response.data);
+   if (response.data.accessToken) {
         localStorage.setItem('accessToken', response.data.accessToken);
       }
+       // Save tokens
+      localStorage.setItem("accessToken", result.data.accessToken);
+      localStorage.setItem("refreshToken", result.data.refreshToken);
+
+      // Fetch user details
+      const userDetail = await fetchUserDetails();
+      setUser(userDetail.data); // Assuming axios returns data inside .data
+
+      // Clear form
+      setData({ email: "", password: "" });
+
+   
     } catch (error) {
       console.error('Login failed:', error);
       throw error;
