@@ -9,7 +9,6 @@ import img2 from '../../assets/img/Sign_up_img2.png';
 import Sign_up from '../../components/Sign_up/Sign_up';
 import { AuthContext } from '../AuthContext.jsx';
 import { useNavigate } from 'react-router-dom';
-import { toast } from "react-toastify";
 
 gsap.registerPlugin(useGSAP);
 
@@ -68,18 +67,21 @@ const Sign_in = () => {
 
         try {
             await login(form);
-              toast.success(result.message);
-      // Redirect
-      navigate("/");
+            console.log('Login successful');
+            setMessage('Login successful!');
+            alert('Login successful!');
+            navigate('/'); // ← this navigates without reloading
 
-    } catch (error) {
-      toast.error("An error occurred. Please try again.");
-      console.error("Login error:", error);
-    }
+        } catch (err) {
+            console.error(err);
+            const errorMessage =
+                err?.response?.data?.message || err?.message || 'Login failed';
+            setMessage(errorMessage);
+            alert('Login failed!');
+        }
     };
 
-
-
+    
     return (
         <div ref={container} className='mb-20'>
             <div className='absolute z-10 w-full'>

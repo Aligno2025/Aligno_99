@@ -1,203 +1,61 @@
-// // AuthContext.js
-// import React, { createContext, useState, useEffect } from 'react';
-// import { apiLogin, apiLogout, refreshToken } from './authAPI';
-
-// export const AuthContext = createContext();
-
-// export const AuthProvider = ({ children }) => {
-//     const [user, setUser] = useState(null);
-//     const [loading, setLoading] = useState(true);
-
-//     // Attempt to refresh session on mount
-//     useEffect(() => {
-//         const checkSession = async () => {
-//             try {
-//                 const response = await refreshToken();
-//                 setUser(response.data.user);
-//             } catch (error) {
-//                 setUser(null);
-//             } finally {
-//                 setLoading(false);
-//             }
-//         };
-
-//         checkSession();
-//     }, []);
-
-//     const login = async (credentials) => {
-//         try {
-//             const response = await apiLogin(credentials);
-//             setUser(response.data.user);
-//         } catch (error) {
-//             console.error('Login failed:', error);
-//             throw error;
-//         }
-//     };
-
-//     const logout = async () => {
-//         try {
-//             await apiLogout();
-//             setUser(null);
-//         } catch (error) {
-//             console.error('Logout failed:', error);
-//         }
-//     };
-
-//     const isLoggedIn = !!user;
-
-//     return (
-//         <AuthContext.Provider value={{ user, login, logout, isLoggedIn }}>
-//             {!loading && children}
-//         </AuthContext.Provider>
-//     );
-// };
-
-
-
-
-
-// AuthContext.js
-// import React, { createContext, useState, useEffect } from 'react';
-// import { apiLogin, apiLogout, refreshToken } from './authAPI';
-
-// export const AuthContext = createContext();
-
-// export const AuthProvider = ({ children }) => {
-//   const [user, setUser] = useState(null);
-//   const [loading, setLoading] = useState(true); // Indicates auth check in progress
-
-//   // Refresh session on initial load
-//   useEffect(() => {
-//     const checkSession = async () => {
-//       try {
-//         const response = await refreshToken(); // Checks for valid refresh token
-//         setUser(response.data.user);
-//         console.log("Refresh response:", response.data,user);
-//       } catch (error) {
-//         setUser(null);
-//       } finally {
-//         setLoading(false); // Done checking session
-//       }
-
-
-//       console.log("User:", user);
-//   console.log("isLoggedIn:", !!user);
-//   console.log("Loading:", loading);
-
-//     };
-
-
-
-//     checkSession();
-//   }, []);
-
-//   const login = async (credentials) => {
-//     try {
-//       const response = await apiLogin(credentials); // API call to login
-//       setUser(response.data.user); // Set user after successful login
-//     } catch (error) {
-//       console.error('Login failed:', error);
-//       throw error;
-//     }
-//   };
-
-//   const logout = async () => {
-//     try {
-//       await apiLogout(); // Invalidate session on server
-//       setUser(null);     // Clear user on client
-//     } catch (error) {
-//       console.error('Logout failed:', error);
-//     }
-//   };
-
-//   const isLoggedIn = !!user;
-
-//   return (
-//     <AuthContext.Provider
-//       value={{
-//         user,
-//         login,
-//         logout,
-//         isLoggedIn,
-//         loading, // Include loading so components can check when auth is ready
-//       }}
-//     >
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
-
-
 // AuthContext.js
 import React, { createContext, useState, useEffect } from 'react';
 import { apiLogin, apiLogout, refreshToken } from './authAPI';
-
+import { fetchUserDetails } from './fetchUserDetails';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true); // Indicates auth check in progress
-  const [error, setError] = useState(null); // Track errors for debugging
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Refresh session on initial load
   useEffect(() => {
     const checkSession = async () => {
       try {
-        setError(null); // Reset error state
-        const response = await refreshToken(); // Call refreshToken
-        console.log('Refresh token response data:', response);
+        setError(null);
+        const response = await refreshToken();
+        console.log('Refresh token response:', response.data);
 
-        // Ensure user data exists in response
-        if (response.user) {
-          setUser(response.user);
-          // Optionally store access token if provided
-          if (response.accessToken) {
-            localStorage.setItem('accessToken', response.accessToken);
+        if (response.data && response.data.user) {
+          setUser(response.data.user);
+
+          if (response.data.accessToken) {
+            localStorage.setItem('accessToken', response.data.accessToken);
           }
         } else {
-          console.warn('No user data in refresh response:', response);
           setUser(null);
         }
-      } catch (error) {
-        console.error('Session check failed:', error);
+      } catch (err) {
+        console.error('Session check failed:', err);
         setUser(null);
-        setError(error.message || 'Failed to refresh session');
+        setError(err.message || 'Failed to refresh session');
       } finally {
-        setLoading(false); // Done checking session
+        setLoading(false);
       }
-
-      // Log state after update
-      console.log('Auth state:', { user, isLoggedIn: !!user, loading, error });
     };
 
     checkSession();
-  }, []); // Empty dependency array for initial load only
+  }, []);
 
-  // Provide login/logout functions (example)
   const login = async (credentials) => {
     try {
       const response = await apiLogin(credentials);
-      setUser(response.data.user);
-      console.log('Login response data:', response.data);
-   if (response.data.accessToken) {
+
+      if (response.data.accessToken) {
         localStorage.setItem('accessToken', response.data.accessToken);
       }
-       // Save tokens
-      localStorage.setItem("accessToken", result.data.accessToken);
-      localStorage.setItem("refreshToken", result.data.refreshToken);
 
-      // Fetch user details
-      const userDetail = await fetchUserDetails();
-      setUser(userDetail.data); // Assuming axios returns data inside .data
+      if (response.data.refreshToken) {
+        localStorage.setItem('refreshToken', response.data.refreshToken);
+      }
 
-      // Clear form
-      setData({ email: "", password: "" });
-
-   
-    } catch (error) {
-      console.error('Login failed:', error);
-      throw error;
+      // Optionally fetch fresh user details after login
+      const userDetails = await fetchUserDetails();
+      setUser(userDetails.data);
+    } catch (err) {
+      console.error('Login failed:', err);
+      throw err;
     }
   };
 
@@ -206,8 +64,9 @@ export const AuthProvider = ({ children }) => {
       await apiLogout();
       setUser(null);
       localStorage.removeItem('accessToken');
-    } catch (error) {
-      console.error('Logout failed:', error);
+      localStorage.removeItem('refreshToken');
+    } catch (err) {
+      console.error('Logout failed:', err);
     }
   };
 

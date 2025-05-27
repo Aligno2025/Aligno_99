@@ -33,13 +33,3 @@ export const resetPassword = (token, newPassword) => {
   return axios.post(`${API}/reset-password`, { token, password: newPassword });
 };
 
-// utils/fetchUserDetails.js
-export const fetchUserDetails = () => {
-  const accessToken = localStorage.getItem("accessToken");
-  return axios.get(`${API}/user-details`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-};
