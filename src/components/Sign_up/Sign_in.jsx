@@ -9,6 +9,7 @@ import img2 from '../../assets/img/Sign_up_img2.png';
 import Sign_up from '../../components/Sign_up/Sign_up';
 import { AuthContext } from '../AuthContext.jsx';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 
 gsap.registerPlugin(useGSAP);
 
