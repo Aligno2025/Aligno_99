@@ -32,4 +32,3 @@ export const forgotPassword = (email) => {
 export const resetPassword = (token, newPassword) => {
   return axios.post(`${API}/reset-password`, { token, password: newPassword });
 };
-

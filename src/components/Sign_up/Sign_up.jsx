@@ -89,9 +89,6 @@ const Sign_in = () => {
             alert("Registration successful!");
             closeModal();
     
-            // Automatically log in the user
-            await login({ email: form.email, password: form.password }); // ✅ Correct credentials
-    
             navigate('/Sign_in'); // Optional: redirect after login
         } catch (err) {
             console.error(err);
