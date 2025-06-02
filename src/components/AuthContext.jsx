@@ -1,7 +1,11 @@
 // AuthContext.js
 import React, { createContext, useState, useEffect } from 'react';
 import { apiLogin, apiLogout, refreshToken } from './authAPI';
+<<<<<<< HEAD
 import { fetchUserDetails } from './fetchUserDetails'; 
+=======
+import { fetchUserDetails } from './fetchUserDetails'; // ✅ Import it
+>>>>>>> a3efdd5d662abcd57ec0cdbbc96130b2fc083d0c
 
 export const AuthContext = createContext();
 
