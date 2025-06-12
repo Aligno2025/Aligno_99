@@ -61,25 +61,24 @@ const Sign_in = () => {
         setForm(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (!validate()) return;
+   const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
 
-        try {
-            await login(form);
-            console.log('Login successful');
-            setMessage('Login successful!');
-            alert('Login successful!');
-            navigate('/'); // ← this navigates without reloading
-
-        } catch (err) {
-            console.error(err);
-            const errorMessage =
-                err?.response?.data?.message || err?.message || 'Login failed';
-            setMessage(errorMessage);
-            alert('Login failed!');
-        }
-    };
+    try {
+        console.log('Sending login form:', form);  // Debug line
+        await login(form);
+        console.log('Login successful');
+        setMessage('Login successful!');
+        alert('Login successful!');
+        navigate('/');
+    } catch (err) {
+        console.error('Login error:', err?.response?.data || err);
+        const errorMessage = err?.response?.data?.message || err?.message || 'Login failed';
+        setMessage(errorMessage);
+        alert(errorMessage);
+    }
+};
 
     
     return (

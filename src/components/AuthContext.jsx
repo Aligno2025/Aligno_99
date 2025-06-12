@@ -1,5 +1,4 @@
-// AuthContext.js
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useMemo } from 'react';
 import { apiLogin, apiLogout, refreshToken } from './authAPI';
 
 export const AuthContext = createContext();
@@ -7,15 +6,16 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // Attempt to refresh session on mount
     useEffect(() => {
         const checkSession = async () => {
             try {
                 const response = await refreshToken();
                 setUser(response.data.user);
-            } catch (error) {
+            } catch (err) {
                 setUser(null);
+                console.warn('Session refresh failed:', err);
             } finally {
                 setLoading(false);
             }
@@ -27,27 +27,40 @@ export const AuthProvider = ({ children }) => {
     const login = async (credentials) => {
         try {
             const response = await apiLogin(credentials);
-            setUser(response.data.user);
-        } catch (error) {
-            console.error('Login failed:', error);
-            throw error;
+            localStorage.setItem('token', response.data.token); // if using token-based auth
+            return response.data;
+        } catch (err) {
+            console.error('Login failed:', err);
+            setError(err);
+            throw err;
         }
     };
+    
 
     const logout = async () => {
         try {
             await apiLogout();
             setUser(null);
-        } catch (error) {
-            console.error('Logout failed:', error);
+        } catch (err) {
+            console.error('Logout failed:', err);
         }
     };
 
     const isLoggedIn = !!user;
 
+    const value = useMemo(() => ({
+        user,
+        login,
+        logout,
+        isLoggedIn,
+        error,
+    }), [user, error]);
+
+    if (loading) return <div>Loading...</div>; // or a custom spinner
+
     return (
-        <AuthContext.Provider value={{ user, login, logout, isLoggedIn }}>
-            {!loading && children}
+        <AuthContext.Provider value={value}>
+            {children}
         </AuthContext.Provider>
     );
 };
