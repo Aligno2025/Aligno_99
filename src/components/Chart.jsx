@@ -1,6 +1,6 @@
 import React from 'react'
 import Dashboard from '../components/Dashboard'
-
+import { Link } from 'react-router-dom'
 
 
 function Bar(props) {
@@ -25,7 +25,9 @@ const Chart = () => {
         <div className='@container'>
             <div class='p-8 md:p-10 grid md:grid-cols-4 @5xl:gap-5 gap-2 md:bg-linear-to-t  from-arrow-purple-104 to-light-red-181 '>
                 <div class='md:col-span-3'>
-                    <Dashboard />
+                    <Link to='/MainDash'>
+                        <Dashboard />
+                    </Link>
                 </div>
                 <div class='grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-6 md:p-4 mt-5 md-mt-0'>
                     <div>

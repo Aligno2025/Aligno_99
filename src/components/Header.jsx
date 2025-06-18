@@ -29,7 +29,7 @@ const Header = () => {
  
   
   const handleLogout = async () => {
-    const { logout } = useContext(AuthContext);
+    // const { logout } = useContext(AuthContext);
   
     try {
       await logout(); // ✅ Calls API and clears user state in context
@@ -96,12 +96,25 @@ const Header = () => {
 
               <Contact_us />
 
-              {!isLoggedIn && <button>
-                <li>
-                  <Link to="/Sign_in" className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"> Sign in
-                  </Link>
-                </li>
-              </button>}
+             {!isLoggedIn ? (
+              <li>
+                <Link
+                  to="/Sign_in"
+                  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
+                >
+                  Sign in
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <button
+                  onClick={handleLogout}
+                  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"
+                >
+                  Sign out
+                </button>
+              </li>
+            )}
 
             </ul>
           </div>

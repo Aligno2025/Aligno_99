@@ -11,21 +11,12 @@ import Main_support from './components/Support/Main_support.jsx'
 import Error from './components/Error.jsx';
 import Sign_in from './components/Sign_up/Sign_in.jsx';
 import Test from './components/Test.jsx';
+import MainDash from './components/MainDash.jsx';
 
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode >
-    {/* <HashRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/Main_task" element={<Main_task />} />
-        <Route path="/Main_team" element={<Main_team />} />
-        <Route path="/Main_support" element={<Main_support />} />
-        <Route path="/Sign_in" element={<Sign_in />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </HashRouter> */}
     <AuthProvider>
       <HashRouter>
         <Routes>
@@ -36,6 +27,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/Sign_in" element={<Sign_in />} />
           <Route path="*" element={<Error />} />
           <Route path="Test" element={<Test />} />
+          <Route path="MainDash" element={<MainDash />} />
         </Routes>
       </HashRouter>
     </AuthProvider>

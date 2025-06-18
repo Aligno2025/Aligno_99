@@ -14,8 +14,13 @@ const Sign_in = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const container = useRef();
     const modalRef = useRef(null);
-    const { login } = useContext(AuthContext);
+    const [errors, setErrors] = useState({});
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [message, setMessage] = useState('');
+    const navigate = useNavigate();
 
+    
     useGSAP(() => {
         gsap.from('.Sign_up-element', {
             opacity: 0,
@@ -38,14 +43,10 @@ const Sign_in = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        role: ''
+        // role: ''
     });
     
-    const [errors, setErrors] = useState({});
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [message, setMessage] = useState('');
-    const navigate = useNavigate();
+   
 
     const validate = () => {
         const errors = {};
@@ -134,9 +135,9 @@ const Sign_in = () => {
                                         onChange={handleChange}
                                         className={`mt-1 p-2 w-full border-b-2 bg-gray-100 `}
                                     />
-                                    {/* {errors.name && (
+                                    {errors.name && (
                                         <p className="text-red-500 text-xs">{errors.name}</p>
-                                    )} */}
+                                    )}
                                 </div>
 
                                 <div className="mb-4">
@@ -185,7 +186,7 @@ const Sign_in = () => {
                                     {errors.confirmPassword && <p className="text-red-500 text-xs">{errors.confirmPassword}</p>}
                                 </div>
 
-                                <div>
+                                {/* <div>
                                     <label className="block text-gray-700 text-sm">Role</label>
                                     <select
                                         value={form.role}
@@ -195,7 +196,7 @@ const Sign_in = () => {
                                         <option value="user">User</option>
                                         <option value="admin">Admin</option>
                                     </select>
-                                </div>
+                                </div> */}
 
                                 <button type="submit" className="w-full bg-amber-48 text-white py-2 mt-4">Sign up</button>
                                 {message && <p className="text-sm mt-2 text-red-500">{message}</p>}

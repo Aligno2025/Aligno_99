@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import Graph from './Graph'
 import { SlArrowDown } from "react-icons/sl";
 import { GoHome } from "react-icons/go";
@@ -10,21 +10,42 @@ import { MdOutlineSettings } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { AiOutlineTeam } from "react-icons/ai";
+import { AuthContext } from '../components/AuthContext.jsx';
+import { useNavigate } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
-const Dashboard = () => {
+const MainDash = () => {
+ const { isLoggedIn, user, logout, loading } = useContext(AuthContext);
+  const navigate = useNavigate();
+      const handleLogout = async () => {
+    // const { logout } = useContext(AuthContext);
+  
+    try {
+      await logout(); // ✅ Calls API and clears user state in context
+  
+      // ✅ Redirect after logout
+      navigate('/Sign_in');
+    } catch (err) {
+      console.error('Logout failed:', err);
+      alert('Logout failed. Please try again.');
+    }
+  };
+
   return (
 
-    <div class='grid md:grid-cols-4 bg-white -rotate-2 rounded-2xl md:gap-4 gap-2 md:p-10 p-2 md:mt-10 mt-5'>
+    <div class='grid md:grid-cols-4 bg-white  md:gap-4 gap-2 '>
 
-      <div className='bg-amber-48 rounded-l-2xl  text-white invisible md:visible absolute md:relative'>
+      <div className='bg-amber-48   text-white invisible md:visible absolute md:relative'>
 
         <h1 className="font-poppins text-2xl pl-5 pt-2 font-extrabold">Aligno</h1>
 
 
         <div class='font-Roboto text-sm font-medium'>
           <ul class='grid grid-rows-5 gap-2  pt-6  pl-5' >
-            <li class=''><GoHome class='inline text-lg' /> Home</li>
+            <Link to="/">
+                <li class=''><GoHome class='inline text-lg' /> Home</li>
+            </Link>
             <li class=''><MdOutlineFolderCopy class='inline text-lg' />  Feed</li>
             <li class=''><LiaTagsSolid class='inline text-lg' />  Calender</li>
             <li class=''><GrGallery class='inline text-lg' />  Projects</li>
@@ -50,7 +71,13 @@ const Dashboard = () => {
         </div>
 
         <p className='pl-5 mt-5'><MdOutlineSettings className='inline text-xl' />  Settings</p>
-
+                <button
+                  onClick={handleLogout}
+                  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white  hover:text-yellow-500"
+                >
+                  Sign out
+                </button>
+              
       </div>
 
       <div className='md:col-span-3 md:p-5 p-2 pt-5'>
@@ -79,8 +106,8 @@ const Dashboard = () => {
         <div className='grid md:grid-cols-2 md:grid-rows-2  gap-4 md:mt-4 mt-2 text-xl '>
           <div>
 
-            <h1 class='text-amber-48 font-bold'>All Tasks</h1>
-            <div class='-rotate-2 text-gray-500 text-sm'>
+            <h1 class='text-amber-48 font-bold mb-5'>All Tasks</h1>
+            <div class='text-gray-500 text-sm'>
               <div class='grid grid-cols-2 border-b-1 border-t-1 border-r-1 border-gray-300 p-5 rounded-2xl'>
                 <div class='grid md:gap-2 gap-4'>
                   <p>Week 1</p>
@@ -99,7 +126,7 @@ const Dashboard = () => {
           </div>
 
           <div className='order-last md:order-none'>
-            <h1 className=' font-bold'> <span className='text-orange-225 md:mr-30 mr-10'> Analytics</span> Progress</h1>
+            <h1 className=' font-bold'> <span className='text-orange-225 md:mr-30 mr-10 mb-10'> Analytics</span> Progress</h1>
             <Graph />
           </div>
 
@@ -141,4 +168,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default MainDash
