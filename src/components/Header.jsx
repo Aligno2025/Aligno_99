@@ -8,6 +8,7 @@ import Contact_us from './Contact_us';
 // import { logout } from './authAPI.jsx';
 import { AuthContext } from '../components/AuthContext.jsx';
 import FeaturesBtn from './FeaturesBtn.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,7 @@ const Header = () => {
   const dropdownRef = useRef(null);
   const modalRef = useRef(null);
   const { isLoggedIn, user, logout, loading } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isOpen) {
@@ -35,7 +37,7 @@ const Header = () => {
       await logout(); // ✅ Calls API and clears user state in context
   
       // ✅ Redirect after logout
-      window.location.href = "/Sign_in";
+      navigate('/');
     } catch (err) {
       console.error('Logout failed:', err);
       alert('Logout failed. Please try again.');

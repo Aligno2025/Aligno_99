@@ -5,12 +5,14 @@ import img2 from '../assets/img/amico.png';
 import img1 from '../assets/img/bro.png';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../components/AuthContext.jsx';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(useGSAP);
 
 const Hero = () => {
     const container = useRef();
     const { isLoggedIn, logout } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useGSAP(() => {
         gsap.from('.hero-element', {
@@ -21,6 +23,18 @@ const Hero = () => {
             ease: 'power3.out',
         });
     }, { scope: container });
+
+
+    const handleClick = () => {
+    alert("You are logged in");
+    navigate("/"); // Redirect to home ("/")
+  };
+
+    const handleClicked = () => {
+    alert("more features coming soon");
+    navigate("/"); // Redirect to home ("/")
+  };
+
 
     return (
         <div className='@container'>
@@ -49,10 +63,10 @@ const Hero = () => {
                             </Link>
                         </button>
                   ) : (
-                    <button className='md:mr-20 mr-6 md:pt-16 pt-8'>
-                            <Link to="/" className="md:px-8 px-6 md:py-4 py-2 bg-amber-48 font-Roboto text-sm md:text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" >
+                    <button onClick={handleClick} className='md:mr-20 mr-6 md:pt-16 pt-8'>
+                            <div className="md:px-8 px-6 md:py-4 py-2 bg-amber-48 font-Roboto text-sm md:text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48" >
                                 Get Started
-                            </Link>
+                            </div>
                         </button>
                   )}
 
@@ -64,10 +78,10 @@ const Hero = () => {
                             </Link>
                         </button>
                   ) : (
-                    <button>
-                            <Link to="/" className="md:px-8 px-6 md:py-4 py-2  font-Roboto text-sm md:text-base font-medium text-black hover:bg-amber-48 hover:text-white hover:border-amber-48 border-2 ">
+                    <button onClick={handleClicked}>
+                            <div className="md:px-8 px-6 md:py-4 py-2  font-Roboto text-sm md:text-base font-medium text-black hover:bg-amber-48 hover:text-white hover:border-amber-48 border-2 ">
                                 Learn More
-                            </Link>
+                            </div>
                         </button>
                   )}
 
