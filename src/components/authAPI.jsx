@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // const API = 'https://aligno-server.onrender.com/api/auth';
 // const API = 'http://localhost:5000/api/auth';
-const API = 'https://alignoserver-production.up.railway.app/api/auth';
+const API = 'https://aligno99.onrender.com/api/auth';
 
 // Register user
 export const apiRegister = (userData) => {
