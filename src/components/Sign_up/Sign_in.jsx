@@ -9,7 +9,6 @@ import img2 from '../../assets/img/Sign_up_img2.png';
 import Sign_up from '../../components/Sign_up/Sign_up';
 import { AuthContext } from '../AuthContext.jsx';
 import { useNavigate } from 'react-router-dom';
-import { PROVIDER_URL } from '../authAPI.jsx'; // Adjust the import path as necessary
 // import { API } from '../authAPI.jsx'
 
 gsap.registerPlugin(useGSAP);
@@ -82,7 +81,7 @@ const Sign_in = () => {
         }
     };
 
-
+const PROVIDER_URL = 'https://aligno99.onrender.com'; // Replace with your deployed backend URL
 
     const handleOAuthLogin = (provider) => {
         if (!['google', 'twitter'].includes(provider)) {

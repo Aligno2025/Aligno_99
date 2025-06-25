@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { AuthProvider } from './components/AuthContext.jsx';
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import Main_task from './components/Task_management/Main_task.jsx'
 import Main_team from './components/Team_collaboration/Main_team.jsx'
@@ -17,6 +18,7 @@ import MainDash from './components/MainDash.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode >
+  <BrowserRouter>
     <AuthProvider>
       <HashRouter>
         <Routes>
@@ -31,5 +33,6 @@ createRoot(document.getElementById('root')).render(
         </Routes>
       </HashRouter>
     </AuthProvider>
+     </BrowserRouter>
   </StrictMode>,
 )
