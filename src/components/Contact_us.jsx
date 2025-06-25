@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext  } from 'react';
 import { IoCloseSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { AuthContext } from '../components/AuthContext.jsx';
+import { apiSendMessage, apiSendGuestMessage } from './authAPI.jsx'; // adjust path as needed
 
 const Contact_us = () => {
     const [email, setEmail] = useState('');
@@ -13,6 +15,7 @@ const Contact_us = () => {
       message: '',
       isAgree: false,
     });
+    const { isLoggedIn, user, logout, loading } = useContext(AuthContext);
   
     const modalRef = useRef(null);
   
@@ -44,38 +47,78 @@ const Contact_us = () => {
       }));
     };
   
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      const wordCount = formData.message.split(' ').length;
-      if (wordCount < 50) {
-        alert("Please write at least 50 words.");
-        return;
-      }
-      if (!formData.isAgree) {
-        alert("You must agree to the terms.");
-        return;
-      }
-      setIsModalOpen(true);
-    };
-  
-    const closeModal = () => {
-      setIsModalOpen(!isModalOpen);
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const wordCount = formData.message.trim().split(/\s+/).length;
+  if (wordCount < 5) {
+    alert("Please write at least 5 words.");
+    return;
+  }
+
+  if (!formData.isAgree) {
+    alert("You must agree to the terms.");
+    return;
+  }
+
+  try {
+    if (isLoggedIn) {
+      // ✅ Logged-in user: PATCH to their user document
+      await apiSendMessage(formData.message);
+    } else {
+      // ✅ Guest user: POST to contact API with their details
+      await apiSendGuestMessage({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email,
+        message: formData.message,
+      });
+    }
+
+    alert("Message sent!");
+    setFormData((prev) => ({
+      ...prev,
+      message: '',
+      isAgree: false,
+    }));
+    setEmail('');
+    setIsModalOpen(false);
+  } catch (err) {
+    console.error(err);
+    alert(err.response?.data?.error || 'Something went wrong');
+  }
+};
+
+const closeModal = () => {
+  setIsModalOpen(!isModalOpen);
     };
 
   return (
-    <div>
+   <div>
+  <div
+    onClick={() => setIsModalOpen(true)}
+    className="hover:text-orange-225 font-Roboto text-base font-medium relative"
+  >
+    Contact Us
+  </div>
 
-     <div onClick={() => setIsModalOpen(true)} className="hover:text-orange-225 font-Roboto text-base font-medium relative">Contact Us</div>
+  {isModalOpen && (
+    <div
+      ref={modalRef}
+      className="fixed h-dvh w-dvw inset-0 bg-gray-500/70 flex md:justify-center md:items-center z-60"
+    >
+      <div className="bg-white md:p-12 p-5 md:pt-20 opacity-100 shadow-md md:w-[50%] w-full h-screen relative z-60">
+        <h2 className="text-3xl font-bold text-amber-48 font-Roboto">Get In Touch</h2>
+        <p className="text-xs font-medium mt-2">Get in touch with our team</p>
 
-    {isModalOpen && (
-        <div ref={modalRef} className="fixed h-dvh w-dvw inset-0 bg-gray-500/70 flex md:justify-center md:items-center z-60">
-          <div className="bg-white md:p-12 p-5 md:pt-20  opacity-100 shadow-md md:max-w-xl max-w-xs md:w-full relative z-60">
-            <h2 className="text-3xl font-bold text-amber-48 font-Roboto">Get In Touch</h2>
-            <p className='text-xs font-medium mt-2'>Get in touch with our team</p>
-            <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-              <div className='flex space-x-4'>
+        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+          {!isLoggedIn && (
+            <>
+              <div className="flex space-x-4">
                 <div>
-                  <label className=" text-gray-700 text-sm ">First Name</label>
+                  <label className="text-gray-700 text-sm">First Name</label>
                   <input
                     type="text"
                     name="firstName"
@@ -83,11 +126,11 @@ const Contact_us = () => {
                     onChange={handleInputChange}
                     placeholder="Eniola"
                     required
-                    className={` p-2 w-full border-b-2 border-gray-400 focus:border-gray-600 bg-gray-100`}
+                    className="p-2 w-full border-b-2 border-gray-400 focus:border-gray-600 bg-gray-100"
                   />
                 </div>
                 <div>
-                  <label className=" text-gray-700 text-sm ">Last Name</label>
+                  <label className="text-gray-700 text-sm">Last Name</label>
                   <input
                     type="text"
                     name="lastName"
@@ -95,66 +138,77 @@ const Contact_us = () => {
                     onChange={handleInputChange}
                     placeholder="Ife"
                     required
-                    className={` p-2 w-full border-b-2 border-gray-400 focus:border-gray-600 bg-gray-100`}
+                    className="p-2 w-full border-b-2 border-gray-400 focus:border-gray-600 bg-gray-100"
                   />
                 </div>
               </div>
+
               <div className="mb-4">
-                <label className="block text-gray-700 text-sm ">Email Address</label>
+                <label className="block text-gray-700 text-sm">Email Address</label>
                 <input
                   type="email"
                   value={email}
-                  placeholder='eniolaxyz56@gmail.com'
+                  placeholder="eniolaxyz56@gmail.com"
                   onChange={(e) => setEmail(e.target.value)}
-                  className={` p-2 w-full border-b-2 ${errors.password ? 'border-red-500' : 'border-gray-400 focus:border-gray-600'
-                    } bg-gray-100`}
+                  className={`p-2 w-full border-b-2 ${
+                    errors.email ? 'border-red-500' : 'border-gray-400 focus:border-gray-600'
+                  } bg-gray-100`}
                 />
                 {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
               </div>
-              <div>
-                <label className=" text-gray-700 text-sm ">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Your message (at least 50 words)"
-                  rows="5"
-                  required
-                  className={` p-2 w-full border-b-2 border-gray-400 focus:border-gray-600 bg-gray-100`}
-                />
-              </div>
+            </>
+          )}
 
-              <div>
-                <label className="inline text-xs">
-                  <input
-                    type="checkbox"
-                    name="isAgree"
-                    checked={formData.isAgree}
-                    onChange={(e) => setFormData({ ...formData, isAgree: e.target.checked })}
-                    className='mr-3 inline'
-                  />
-                  You agree to receive our notification via email
-                </label>
-              </div>
-              <div className='flex justify-end'>
-                <button type="submit">
-                  <Link to="/" className="px-8 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-amber-48 border-2 hover:text-amber-48" >
-                    Send
-                  </Link>
-                </button>
-              </div>
-            </form>
-            <button
-              type="button"
-              onClick={closeModal}
-              className="absolute md:right-5 md:top-6 right-3  top-5 text-2xl text-red-950 z-40"
-            >
-              {isModalOpen ? <IoCloseSharp /> : close}
+          <div>
+            <label className="text-gray-700 text-sm">Message</label>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              placeholder="Your message (at least 5 words)"
+              rows="3"
+              required
+              className="p-2 w-full border-b-2 border-gray-400 focus:border-gray-600 bg-gray-100"
+            />
+          </div>
+
+          <div>
+            <label className="inline text-xs">
+              <input
+                type="checkbox"
+                name="isAgree"
+                checked={formData.isAgree}
+                onChange={(e) =>
+                  setFormData({ ...formData, isAgree: e.target.checked })
+                }
+                className="mr-3 inline"
+              />
+              You agree to receive our notification via email
+            </label>
+          </div>
+
+          <div className="flex justify-end">
+            <button type="submit" 
+                // onClick={closeModal}
+                className="px-8 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-amber-48 border-2 hover:text-amber-48">
+              
+                Send
             </button>
           </div>
-        </div>
-      )}
+        </form>
+
+        <button
+          type="button"
+          onClick={closeModal}
+          className="absolute invisible md:visible md:right-5 md:top-6 right-3 top-5 text-2xl text-red-950 z-40"
+        >
+          <IoCloseSharp />
+        </button>
+      </div>
     </div>
+  )}
+</div>
+
   )
 }
 

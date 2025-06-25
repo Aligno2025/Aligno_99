@@ -9,6 +9,7 @@ import img2 from '../../assets/img/Sign_up_img2.png';
 import Sign_up from '../../components/Sign_up/Sign_up';
 import { AuthContext } from '../AuthContext.jsx';
 import { useNavigate } from 'react-router-dom';
+// import { API } from '../authAPI.jsx'
 
 gsap.registerPlugin(useGSAP);
 
@@ -61,26 +62,38 @@ const Sign_in = () => {
         setForm(prev => ({ ...prev, [name]: value }));
     };
 
-   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validate()) return;
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!validate()) return;
 
-    try {
-        console.log('Sending login form:', form);  // Debug line
-        await login(form);
-        console.log('Login successful');
-        setMessage('Login successful!');
-        alert('Login successful!');
-        navigate('/MainDash'); // Redirect to Dashboard after successful login
-    } catch (err) {
-        console.error('Login error:', err?.response?.data || err);
-        const errorMessage = err?.response?.data?.message || err?.message || 'Login failed';
-        setMessage(errorMessage);
-        alert(errorMessage);
-    }
-};
+        try {
+            console.log('Sending login form:', form);  // Debug line
+            await login(form);
+            console.log('Login successful');
+            setMessage('Login successful!');
+            alert('Login successful!');
+            navigate('/MainDash'); // Redirect to Dashboard after successful login
+        } catch (err) {
+            console.error('Login error:', err?.response?.data || err);
+            const errorMessage = err?.response?.data?.message || err?.message || 'Login failed';
+            setMessage(errorMessage);
+            alert(errorMessage);
+        }
+    };
 
-    
+
+    const BACKEND_URL = 'http://localhost:5000'; // Replace with your deployed backend URL
+
+    const handleOAuthLogin = (provider) => {
+        if (!['google', 'twitter'].includes(provider)) {
+            console.error('Unsupported provider');
+            return;
+        }
+
+        window.open(`${BACKEND_URL}/auth/${provider}`, "_self");
+    };
+
+
     return (
         <div ref={container} className='mb-20'>
             <div className='absolute z-10 w-full'>
@@ -99,7 +112,7 @@ const Sign_in = () => {
                 </div>
 
                 <div className="flex justify-center items-center Sign_up-element">
-                    <div className='md:p-10 p-5 border border-gray-300'>
+                    <div className="bg-white shadow-lg rounded-lg p-6 md:p-10 w-full max-w-md">
                         <form onSubmit={handleSubmit} className="md:max-w-full max-w-sm mt-20">
                             <h2 className="md:text-4xl text-2xl font-bold text-center text-amber-48 mb-2">Sign in to Aligno</h2>
                             <p className="text-center text-gray-600 text-xs mb-6">Please sign in to continue</p>
@@ -150,18 +163,22 @@ const Sign_in = () => {
                         </form>
 
                         <div className="flex justify-center space-x-4 mb-4">
-                            <button className="border-2 text-sm text-black p-1 md:pl-4 md:pr-4 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
-                                <FaGoogle />
+                         
+                            <button onClick={() => handleOAuthLogin('google')} className="border-2 text-sm text-black p-1 md:pl-4 md:pr-4 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
+                                <FaGoogle /> 
                                 <span>Google</span>
                             </button>
+
+                            <button onClick={() => handleOAuthLogin('twitter')} className="border-2 text-sm text-black p-1 md:pl-4 md:pr-4 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
+                                <FaXTwitter /> 
+                                <span>Twitter</span>
+                            </button>
+
                             <button className="border-2 text-sm text-black p-1 md:pl-4 md:pr-4 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
                                 <FaApple />
                                 <span>Apple</span>
                             </button>
-                            <button className="border-2 text-sm text-black p-1 md:pl-4 md:pr-4 pr-4 pl-2 hover:bg-amber-48 flex items-center space-x-2">
-                                <FaXTwitter />
-                                <span>Twitter</span>
-                            </button>
+                          
                         </div>
 
                         <div>
