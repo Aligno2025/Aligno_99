@@ -27,8 +27,10 @@ export const apiLogout = async () => {
 
 // Refresh authentication token
 export const refreshToken = async () => {
+  console.log('Refreshing token at:', `${API}/refresh`);
   const response = await axios.post(`${API}/refresh`, {}, { withCredentials: true });
-  return response.data.accessToken; // this now works because backend returns it
+  console.log('Refresh response:', response.data);
+  return response.data.accessToken;
 };
 
 // Request password reset email
