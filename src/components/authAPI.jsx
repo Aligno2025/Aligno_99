@@ -2,9 +2,12 @@
 import axios from 'axios';
 
 // const API = 'https://aligno-server.onrender.com/api/auth';
-export const API = 'http://localhost:5000/api/auth';
-export const APIM = 'http://localhost:5000/api'; // For messages
-// const API = 'https://aligno99.onrender.com/api/auth';
+// export const API = 'http://localhost:5000/api/auth';
+// export const APIM = 'http://localhost:5000/api'; // For messages
+const API = 'https://aligno99.onrender.com/api/auth';
+const APIM = 'https://aligno99.onrender.com/api'; // For messages
+const PROVIDER_URL = 'https://aligno99.onrender.com'; // Replace with your deployed backend URL
+
 
 // Register user
 export const apiRegister = (userData) => {
