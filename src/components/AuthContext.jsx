@@ -88,29 +88,29 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // Store user data or null
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [accessToken, setAccessToken] = useState(null); // Access token
+  const [accessToken, setAccessToken] = useState(null); // Renamed for clarity
   const navigate = useNavigate();
 
   useEffect(() => {
-    let isMounted = true;
-    const controller = new AbortController();
+    let isMounted = true; // Prevent state updates after unmount
+    const controller = new AbortController(); // For canceling network requests
 
     const checkSession = async () => {
       setLoading(true);
       try {
-        const response = await refreshToken({ signal: controller.signal }); // Expect { token, user? }
+        const response = await refreshToken({ signal: controller.signal }); // Expect { accessToken, user }
         if (isMounted) {
-          setAccessToken(response.token); // Adjust based on API response
-          setUser(response.user || true); // Use user data or true
-          setError(null);
+          setAccessToken(response.accessToken);
+          setUser(response.user || true); // Use user data if provided, else true
+          setError(null); // Clear any previous errors
         }
       } catch (err) {
         if (err.name === 'AbortError') return;
         console.error('Session refresh failed:', err.message);
         if (isMounted) {
           setUser(null);
-          setAccessToken(null);
-          navigate('/login'); // Redirect to login
+          setAccessToken(null); // Clear token on failure
+          navigate('/'); // Redirect to login
         }
       } finally {
         if (isMounted) {
@@ -123,17 +123,16 @@ export const AuthProvider = ({ children }) => {
 
     return () => {
       isMounted = false;
-      controller.abort();
+      controller.abort(); // Cancel network requests on unmount
     };
-  }, [navigate]);
+  }, []);
 
   const login = async (credentials) => {
     try {
-      const response = await apiLogin(credentials); // Expect { token, user? }
-      setAccessToken(response.token); // Adjust based on API response
-      setUser(response.user || true);
-      setError(null);
-      navigate('/dashboard'); // Redirect to dashboard or home
+      const response = await apiLogin(credentials); // Expect { accessToken, user }
+      setAccessToken(response.accessToken);
+      setUser(response.user || true); // Use user data if provided, else true
+      setError(null); // Clear any errors
       return response;
     } catch (err) {
       console.error('Login failed:', err.message);
@@ -146,9 +145,9 @@ export const AuthProvider = ({ children }) => {
     try {
       await apiLogout();
       setUser(null);
-      setAccessToken(null);
-      setError(null);
-      navigate('/');
+      setAccessToken(null); // Clear token
+      setError(null); // Clear any errors
+      navigate('/'); // Redirect to login
       console.log('User logged out');
     } catch (err) {
       console.error('Logout failed:', err.message);
@@ -161,7 +160,7 @@ export const AuthProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       user,
-      accessToken,
+      accessToken, // Include accessToken in context
       login,
       logout,
       isLoggedIn,

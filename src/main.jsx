@@ -18,9 +18,8 @@ import MainDash from './components/MainDash.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode >
-  <BrowserRouter>
-    <AuthProvider>
-      <HashRouter>
+    <HashRouter>
+      <AuthProvider>
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/Main_task" element={<Main_task />} />
@@ -31,8 +30,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="Test" element={<Test />} />
           <Route path="MainDash" element={<MainDash />} />
         </Routes>
-      </HashRouter>
-    </AuthProvider>
-     </BrowserRouter>
+      </AuthProvider>
+    </HashRouter>
   </StrictMode>,
 )
