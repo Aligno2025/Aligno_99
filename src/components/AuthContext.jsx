@@ -240,7 +240,7 @@ export const AuthProvider = ({ children }) => {
       setAccessToken(response.accessToken);
       setUser(response.user || true);
       setError(null);
-      navigate('/Dashboard'); // Redirect to dashboard or home
+      // navigate('/Dashboard'); // Redirect to dashboard or home
       return response;
     } catch (err) {
       console.error('Login failed:', err.message, err.response?.data);
@@ -256,7 +256,7 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
       setAccessToken(null);
       setError(null);
-      navigate('/');
+      // navigate('/');
       console.log('User logged out');
     } catch (err) {
       console.error('Logout failed:', err.message, err.response?.data);
