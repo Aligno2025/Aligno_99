@@ -201,7 +201,7 @@ export const AuthProvider = ({ children }) => {
     const checkSession = async () => {
       setLoading(true);
       try {
-        const response = await refreshToken({ signal: controller.signal }); // Expect { token, user? }
+        const response = await refreshToken(); // Expect { token, user? }
         if (isMounted) {
           setAccessToken(response.token); // Adjust based on API response
           setUser(response.user || true); // Use user data or true
