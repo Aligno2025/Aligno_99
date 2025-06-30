@@ -195,43 +195,63 @@ export const AuthProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    let isMounted = true;
+  // useEffect(() => {
+  //   let isMounted = true;
 
-    const checkSession = async () => {
-      setLoading(true);
-      try {
-        const response = await refreshToken(); // Expect { token, user? }
-        if (isMounted) {
-          setAccessToken(response.token); // Adjust based on API response
-          setUser(response.user || true); // Use user data or true
-          setError(null);
-        }
-      } catch (err) {
-        console.error('Session refresh failed:', {
-          message: err.message,
-          status: err.response?.status,
-          data: err.response?.data,
-        });
-        if (isMounted) {
-          setUser(null);
-          setAccessToken(null);
-          navigate('/Sign_in'); // Redirect to login
-        }
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-          console.log('Session check complete, cookies after:', document.cookie);
-        }
-      }
-    };
+  //   const checkSession = async () => {
+  //     setLoading(true);
+  //     try {
+  //       const response = await refreshToken(); // Expect { token, user? }
+  //       if (isMounted) {
+  //         setAccessToken(response.token); // Adjust based on API response
+  //         setUser(response.user || true); // Use user data or true
+  //         setError(null);
+  //       }
+  //     } catch (err) {
+  //       console.error('Session refresh failed:', {
+  //         message: err.message,
+  //         status: err.response?.status,
+  //         data: err.response?.data,
+  //       });
+  //       if (isMounted) {
+  //         setUser(null);
+  //         setAccessToken(null);
+  //         navigate('/Sign_in'); // Redirect to login
+  //       }
+  //     } finally {
+  //       if (isMounted) {
+  //         setLoading(false);
+  //         console.log('Session check complete, cookies after:', document.cookie);
+  //       }
+  //     }
+  //   };
 
-    checkSession();
+  //   checkSession();
 
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  //   return () => {
+  //     isMounted = false;
+  //   };
+  // }, []);
+
+    useEffect(() => {
+  const checkSession = async () => {
+    try {
+     const response = await refreshToken(); // Expect { token, user? }
+      setAccessToken(response.token); // Adjust based on API response
+      setUser(response.user || true); // Use user data or true
+      setError(null);
+      
+    } catch (err) {
+      console.error('Session refresh failed:', err);
+      setUser(null);
+        navigate('/'); // Redirect to login if session check fails
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  checkSession();
+}, []);
 
   const login = async (credentials) => {
     try {
