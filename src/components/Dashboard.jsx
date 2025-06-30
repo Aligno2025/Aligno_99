@@ -23,7 +23,7 @@ const Dashboard = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate('/Sign_in');
+      navigate('/');
     } catch (err) {
       console.error('Logout failed:', err);
       alert('Logout failed. Please try again.');

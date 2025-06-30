@@ -5,7 +5,6 @@ import { LuSearch, LuSquareMenu } from "react-icons/lu";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import Contact_us from './Contact_us';
-// import { logout } from './authAPI.jsx';
 import { AuthContext } from '../components/AuthContext.jsx';
 import FeaturesBtn from './FeaturesBtn.jsx';
 import { useNavigate } from 'react-router-dom';
@@ -31,12 +30,9 @@ const Header = () => {
  
   
   const handleLogout = async () => {
-    // const { logout } = useContext(AuthContext);
   
     try {
       await logout(); // ✅ Calls API and clears user state in context
-  
-      // ✅ Redirect after logout
       navigate('/');
     } catch (err) {
       console.error('Logout failed:', err);

@@ -153,9 +153,12 @@ const Sign_in = () => {
                             </button>
                         </div>
 
-                        <div className="Sign_up-element">
-                            <Sign_up />
-                        </div>
+                        {/* <div className="Sign_up-element ">
+                            <div>
+                            </div>
+                        </div> */}
+                                <Sign_up />
+
                     </div>
                 </div>
             </div>

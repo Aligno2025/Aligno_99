@@ -3,8 +3,7 @@ import axios from 'axios';
 
 const API = 'https://aligno99.onrender.com/api/auth';
 const APIM = 'https://aligno99.onrender.com/api'; // For messages
-// const API = 'http://localhost:5000/api/auth'
-// const APIM = 'http://localhost:5000/api'; // For messages
+
 
 
 // Register user
@@ -27,9 +26,7 @@ export const apiLogout = async () => {
 
 // Refresh authentication token
 export const refreshToken = async () => {
-  // console.log('Refreshing token at:', `${API}/refresh`);
   const response = await axios.post(`${API}/refresh`, {}, { withCredentials: true });
-  // console.log('Refresh response:', response.data);
   return response.data.accessToken;
 };
 
