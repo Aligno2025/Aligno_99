@@ -77,46 +77,149 @@
 //     );
 // };
 
+// import React, { createContext, useState, useEffect, useMemo } from 'react';
+// import { apiLogin, apiLogout, refreshToken } from './authAPI';
+// import { Loader2 } from 'lucide-react';
+// import { useNavigate } from 'react-router-dom';
+
+// export const AuthContext = createContext();
+
+// export const AuthProvider = ({ children }) => {
+//   const [user, setUser] = useState(null); // Store user data or null
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const [accessToken, setAccessToken] = useState(null); // Access token
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     let isMounted = true;
+//     const controller = new AbortController();
+
+//     const checkSession = async () => {
+//       setLoading(true);
+//       try {
+//         const response = await refreshToken({ signal: controller.signal }); // Expect { token, user? }
+//         if (isMounted) {
+//           setAccessToken(response.token); // Adjust based on API response
+//           setUser(response.user || true); // Use user data or true
+//           setError(null);
+//         }
+//       } catch (err) {
+//         if (err.name === 'AbortError') return;
+//         console.error('Session refresh failed:', err.message);
+//         if (isMounted) {
+//           setUser(null);
+//           setAccessToken(null);
+//           navigate('/login'); // Redirect to login
+//         }
+//       } finally {
+//         if (isMounted) {
+//           setLoading(false);
+//         }
+//       }
+//     };
+
+//     checkSession();
+
+//     return () => {
+//       isMounted = false;
+//       controller.abort();
+//     };
+//   }, [navigate]);
+
+//   const login = async (credentials) => {
+//     try {
+//       const response = await apiLogin(credentials); // Expect { token, user? }
+//       setAccessToken(response.token); // Adjust based on API response
+//       setUser(response.user || true);
+//       setError(null);
+//       navigate('/dashboard'); // Redirect to dashboard or home
+//       return response;
+//     } catch (err) {
+//       console.error('Login failed:', err.message);
+//       setError(err.message || 'Login failed');
+//       throw err;
+//     }
+//   };
+
+//   const logout = async () => {
+//     try {
+//       await apiLogout();
+//       setUser(null);
+//       setAccessToken(null);
+//       setError(null);
+//       navigate('/login');
+//       console.log('User logged out');
+//     } catch (err) {
+//       console.error('Logout failed:', err.message);
+//       setError(err.message || 'Logout failed');
+//     }
+//   };
+
+//   const isLoggedIn = !!user;
+
+//   const value = useMemo(
+//     () => ({
+//       user,
+//       accessToken,
+//       login,
+//       logout,
+//       isLoggedIn,
+//       error,
+//     }),
+//     [user, accessToken, error]
+//   );
+
+//   if (loading) {
+//     return (
+//       <div className="flex items-center justify-center h-screen">
+//         <Loader2 className="w-10 h-10 animate-spin text-amber-48" />
+//       </div>
+//     );
+//   }
+
+//   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+// };
+
 import React, { createContext, useState, useEffect, useMemo } from 'react';
 import { apiLogin, apiLogout, refreshToken } from './authAPI';
 import { Loader2 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // Store user data or null
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [accessToken, setAccessToken] = useState(null); // Access token
-  const navigate = useNavigate();
+  const [accessToken, setAccessToken] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
-    const controller = new AbortController();
 
     const checkSession = async () => {
       setLoading(true);
       try {
-       const token = await refreshToken();
-       console.log('Access token:', token);
-if (isMounted) {
-  setAccessToken(token);
-  setUser(true); // Or fetch user info if needed
-  setError(null);
-}
-
+        const response = await refreshToken({ signal: controller.signal }); // Expect { token, user? }
+        if (isMounted) {
+          setAccessToken(response.token); // Adjust based on API response
+          setUser(response.user || true); // Use user data or true
+          setError(null);
+        }
       } catch (err) {
-        if (err.name === 'AbortError') return;
-        console.error('Session refresh failed:', err.message);
+        console.error('Session refresh failed:', {
+          message: err.message,
+          status: err.response?.status,
+          data: err.response?.data,
+        });
         if (isMounted) {
           setUser(null);
           setAccessToken(null);
-          navigate('/Sign_in'); // Redirect to login
+          navigate('/login'); // Redirect to login
         }
       } finally {
         if (isMounted) {
           setLoading(false);
+          console.log('Session check complete, cookies after:', document.cookie);
         }
       }
     };
@@ -125,20 +228,20 @@ if (isMounted) {
 
     return () => {
       isMounted = false;
-      controller.abort();
     };
   }, []);
 
   const login = async (credentials) => {
     try {
-      const response = await apiLogin(credentials); // Expect { token, user? }
-      setAccessToken(response.token); // Adjust based on API response
+      const response = await apiLogin(credentials);
+      console.log('Login success:', response, 'Cookies:', document.cookie);
+      setAccessToken(response.accessToken);
       setUser(response.user || true);
       setError(null);
-      navigate('/MainDash'); // Redirect to dashboard or home
+      navigate('/dashboard'); // Redirect to dashboard or home
       return response;
     } catch (err) {
-      console.error('Login failed:', err.message);
+      console.error('Login failed:', err.message, err.response?.data);
       setError(err.message || 'Login failed');
       throw err;
     }
@@ -146,14 +249,15 @@ if (isMounted) {
 
   const logout = async () => {
     try {
+      console.log('Logging out, cookies before:', document.cookie);
       await apiLogout();
       setUser(null);
       setAccessToken(null);
       setError(null);
-      navigate('/');
+      navigate('/login');
       console.log('User logged out');
     } catch (err) {
-      console.error('Logout failed:', err.message);
+      console.error('Logout failed:', err.message, err.response?.data);
       setError(err.message || 'Logout failed');
     }
   };
