@@ -1,7 +1,7 @@
-import React from 'react'
+import { useContext } from 'react';
 import Dashboard from '../components/Dashboard'
 import { Link } from 'react-router-dom'
-
+import { AuthContext } from '../components/AuthContext.jsx';
 
 function Bar(props) {
 
@@ -21,17 +21,36 @@ function Bar(props) {
 
 
 const Chart = () => {
+  const { isLoggedIn, user, logout, loading } = useContext(AuthContext);
+
     return (
         <div className='@container'>
-            <div class='p-8 md:p-10 grid md:grid-cols-4 @5xl:gap-5 gap-2 md:bg-linear-to-t  from-arrow-purple-104 to-light-red-181 '>
-                <div class='md:col-span-3'>
-                    <Link to='/MainDash'>
-                        <Dashboard />
-                    </Link>
+            <div className='p-8 md:p-10 grid md:grid-cols-4 @5xl:gap-5 gap-2 md:bg-linear-to-t  from-arrow-purple-104 to-light-red-181 '>
+                <div className='md:col-span-3'>
+                <div className='mb-10'>
+                    <Dashboard />
                 </div>
-                <div class='grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-6 md:p-4 mt-5 md-mt-0'>
+                    
+                         {!isLoggedIn ? (
+                                <Link
+                                  to="/Sign_in"
+                                  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white  hover:text-amber-48 inline-block"
+                                >
+                                  Sign in
+                                </Link>
+                            ) : (
+                              <Link to="/Dashboard" >
+                            <div  className="px-6 py-1.5 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white  hover:text-amber-48 inline-block">
+                            Dashboard
+                            </div>
+                        </Link>
+                            )}
+
+
+                </div>
+                <div className='grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-6 md:p-4 mt-5 md-mt-0'>
                     <div>
-                        <span class='pr-[100%] pt-8 rounded inline-block bg-red-250'></span>
+                        <span className='pr-[100%] pt-8 rounded inline-block bg-red-250'></span>
                         <Bar
                             circle
                             heading='Task Management'
@@ -39,7 +58,7 @@ const Chart = () => {
                         />
                     </div>
                     <div>
-                        <span class='pr-[100%] pt-8 rounded inline-block bg-purple-185'></span>
+                        <span className='pr-[100%] pt-8 rounded inline-block bg-purple-185'></span>
                         <Bar
                             circle
                             heading='Team Collaboration'

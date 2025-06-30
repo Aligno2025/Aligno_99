@@ -57,7 +57,7 @@ function Socials({ links }) {
     return (
         <div>
 
-            <div className="class=' flex gap-2 p-4 pl-0 md:text-2xl text-lg'">
+            <div className="className=' flex gap-2 p-4 pl-0 md:text-2xl text-lg'">
 
                 {links.map((link, index) => (
                     <Link
@@ -92,11 +92,11 @@ const { isLoggedIn, logout } = useContext(AuthContext);
 
     return (
 
-        <div class=' pr-10 pl-10 pb-8 pt-10'>
-            <div class='grid md:grid-cols-2 gap-10'>
-                <div class='order-2 md:order-1'>
-                    <h1 class="font-poppins text-2xl text-amber-48 font-extrabold">Aligno</h1>
-                    <p class='font-Roboto text-base font-normal p-10 md:pr-40 pl-0'>The ultimate productivity tool to streamline task management, set deadlines and collaborate effectively, all in one place</p>
+        <div className=' pr-10 pl-10 pb-8 pt-10'>
+            <div className='grid md:grid-cols-2 gap-10'>
+                <div className='order-2 md:order-1'>
+                    <h1 className="font-poppins text-2xl text-amber-48 font-extrabold">Aligno</h1>
+                    <p className='font-Roboto text-base font-normal p-10 md:pr-40 pl-0'>The ultimate productivity tool to streamline task management, set deadlines and collaborate effectively, all in one place</p>
                 </div>
                 <div className='grid md:justify-end justify-center items-center text-center order-1 md:order-2'>
                     <form action="" className="relative flex text-gray-400  focus-within:text-gray-600  items-center">
@@ -107,18 +107,18 @@ const { isLoggedIn, logout } = useContext(AuthContext);
                             name="fname"
                             placeholder='Enter your email to get the notifi....'
                             aria-labelledby='Enter your email to get the notifi....'
-                            class='px-10 w-[60%]  md:w-[50%] h-9 mt-1  font-Roboto text-sm md:text-base font-medium md:py-1 py-1.5 border-none ring-2 pl-10 ring-gray-300 focus:ring-grey-500 focus:ring-2'
+                            className='px-10 w-[60%]  md:w-[50%] h-9 mt-1  font-Roboto text-sm md:text-base font-medium md:py-1 py-1.5 border-none ring-2 pl-10 ring-gray-300 focus:ring-grey-500 focus:ring-2'
                         />
 
                          {!isLoggedIn ? (
                             <button >
-                            <Link to="/Sign_up" class="px-4 md:px-8 py-2.5 ml-1 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"  smooth="true">
+                            <Link to="/Sign_up" className="px-4 md:px-8 py-2.5 ml-1 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"  smooth="true">
                                 Sign In
                             </Link>
                         </button>
                         ) : (
                             <button >
-                            <Link to="/" class="px-4 md:px-8 py-2.5 ml-1 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"  smooth="true">
+                            <Link to="/" className="px-4 md:px-8 py-2.5 ml-1 bg-amber-48 font-Roboto text-base font-medium text-white hover:bg-white border-2 hover:text-amber-48"  smooth="true">
                                 Sign In
                             </Link>
                         </button>
@@ -129,7 +129,7 @@ const { isLoggedIn, logout } = useContext(AuthContext);
                 </div>
             </div>
 
-            <div class='grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-5'>
+            <div className='grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-5'>
 
                 <Footext h1="Features" links={linksSetOne} />
                 <Footext h1="Legal" links={linksSetTwo} />
@@ -137,9 +137,9 @@ const { isLoggedIn, logout } = useContext(AuthContext);
 
 
                 <div>
-                    <h1 class='font-Roboto font-medium text-lg pb-4'>Socials</h1>
-                    <div class='flex gap-2 pb-3'>
-                    {!isLoggedIn &&  <Link to="/Sign_up" class='md:h-14 h-10 md:w-20 w-[80%] object-fill'>
+                    <h1 className='font-Roboto font-medium text-lg pb-4'>Socials</h1>
+                    <div className='flex gap-2 pb-3'>
+                    {!isLoggedIn &&  <Link to="/Sign_up" className='md:h-14 h-10 md:w-20 w-[80%] object-fill'>
                             <img src={img1} alt="" />
                         </Link>}
 

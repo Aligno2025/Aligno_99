@@ -1,10 +1,10 @@
 // authAPI.js
 import axios from 'axios';
 
-
 const API = 'https://aligno99.onrender.com/api/auth';
 const APIM = 'https://aligno99.onrender.com/api'; // For messages
-
+// const API = 'http://localhost:5000/api/auth'
+// const APIM = 'http://localhost:5000/api'; // For messages
 
 
 // Register user

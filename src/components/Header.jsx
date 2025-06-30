@@ -155,7 +155,7 @@ const Header = () => {
             <form className="relative flex text-gray-400 focus-within:text-gray-600 ml-4 items-center">
               <LuSearch className="absolute w-5 h-5 ml-3 pointer-events-none" />
               <input type="text"
-                id="search" name="search"
+                id="search-alt" name="search"
                 placeholder="Search" aria-labelledby="Search"
                 className="px-3 font-Roboto text-base @5xl:w-50 w-30 font-medium py-1 border-none ring-2 pl-10 rounded ring-gray-300 focus:ring-grey-500 focus:ring-2" />
             </form>

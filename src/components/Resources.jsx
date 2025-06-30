@@ -14,12 +14,12 @@ function Cards(props) {
 
         <div className='@container'>
 
-            <div class='pt-4 pl-4 pr-4 pb-4 @5xl:w-sm w-[100%] rounded-2xl mt-3 bg-white font-Roboto drop-shadow-xl'>
-                <img class='rounded-full' src={props.img} alt="" />
-                <h1 class='text-base font-semibold font-Roboto'>{props.h1}</h1>
-                <h2 class='text-base font-semibold font-Roboto'>{props.h2}</h2>
-                <span class='pr-12 pt-0.5 rounded inline-block bg-amber-48'>{props.line}</span>
-                <p class='text-sm font-normal font-Roboto'>{props.text}</p>
+            <div className='pt-4 pl-4 pr-4 pb-4 @5xl:w-sm w-[100%] rounded-2xl mt-3 bg-white font-Roboto drop-shadow-xl'>
+                <img className='rounded-full' src={props.img} alt="" />
+                <h1 className='text-base font-semibold font-Roboto'>{props.h1}</h1>
+                <h2 className='text-base font-semibold font-Roboto'>{props.h2}</h2>
+                <span className='pr-12 pt-0.5 rounded inline-block bg-amber-48'>{props.line}</span>
+                <p className='text-sm font-normal font-Roboto'>{props.text}</p>
             </div>
         </div>
     )
