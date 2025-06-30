@@ -27,9 +27,9 @@ export const apiLogout = async () => {
 
 // Refresh authentication token
 export const refreshToken = async () => {
-  console.log('Refreshing token at:', `${API}/refresh`);
+  // console.log('Refreshing token at:', `${API}/refresh`);
   const response = await axios.post(`${API}/refresh`, {}, { withCredentials: true });
-  console.log('Refresh response:', response.data);
+  // console.log('Refresh response:', response.data);
   return response.data.accessToken;
 };
 

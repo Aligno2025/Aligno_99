@@ -184,6 +184,7 @@
 import React, { createContext, useState, useEffect, useMemo } from 'react';
 import { apiLogin, apiLogout, refreshToken } from './authAPI';
 import { Loader2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext();
 
@@ -192,6 +193,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [accessToken, setAccessToken] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let isMounted = true;
@@ -214,7 +216,7 @@ export const AuthProvider = ({ children }) => {
         if (isMounted) {
           setUser(null);
           setAccessToken(null);
-          navigate('/login'); // Redirect to login
+          navigate('/Sign_in'); // Redirect to login
         }
       } finally {
         if (isMounted) {
@@ -238,7 +240,7 @@ export const AuthProvider = ({ children }) => {
       setAccessToken(response.accessToken);
       setUser(response.user || true);
       setError(null);
-      navigate('/dashboard'); // Redirect to dashboard or home
+      navigate('/Dashboard'); // Redirect to dashboard or home
       return response;
     } catch (err) {
       console.error('Login failed:', err.message, err.response?.data);
@@ -254,7 +256,7 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
       setAccessToken(null);
       setError(null);
-      navigate('/login');
+      navigate('/');
       console.log('User logged out');
     } catch (err) {
       console.error('Logout failed:', err.message, err.response?.data);
